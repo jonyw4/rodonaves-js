@@ -3,7 +3,7 @@ import Rodonaves from './index';
 test('check if class has all prototypes', async () => {
   expect(Rodonaves.prototype.hasOwnProperty('fetch')).toBe(true);
   expect(Rodonaves.prototype.hasOwnProperty('auth')).toBe(true);
-  expect(Rodonaves.prototype.hasOwnProperty('getCity')).toBe(true);
+  expect(Rodonaves.prototype.hasOwnProperty('getCityByZipCode')).toBe(true);
   expect(Rodonaves.prototype.hasOwnProperty('getCotacao')).toBe(true);
   expect(Rodonaves.prototype.hasOwnProperty('getPrazoEntrega')).toBe(true);
   expect(Rodonaves.prototype.hasOwnProperty('getCotacaoAndPrazoEntrega')).toBe(
