@@ -1,0 +1,72 @@
+{
+  "name": "@carimflex/rodonaves-js",
+  "version": "0.0.0",
+  "description": "🚚 Rodonaves Javascript API",
+  "main": "dist",
+  "scripts": {
+    "build": "del dist/* && babel src -d dist",
+    "lint": "eslint 'src/*'",
+    "test": "jest --collectCoverage && codecov",
+    "semantic-release": "semantic-release"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/1carimflex/rodonaves-js.git"
+  },
+  "keywords": [
+    "rodonaves",
+    "carimflex",
+    "rodonaves",
+    "api",
+    "api",
+    "rte",
+    "rte",
+    "api"
+  ],
+  "author": "Jonathan Célio",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/1carimflex/rodonaves-js/issues"
+  },
+  "homepage": "https://github.com/1carimflex/rodonaves-js#readme",
+  "devDependencies": {
+    "@babel/cli": "^7.8.4",
+    "@babel/core": "^7.9.0",
+    "@babel/preset-env": "^7.9.5",
+    "@commitlint/cli": "^8.3.5",
+    "@commitlint/config-conventional": "^8.3.4",
+    "babel-eslint": "^10.1.0",
+    "codecov": "^3.6.5",
+    "eslint": "^6.8.0",
+    "eslint-config-airbnb-base": "^14.1.0",
+    "eslint-plugin-import": "^2.20.2",
+    "husky": "^4.2.5",
+    "jest": "^25.3.0",
+    "semantic-release": "^17.0.4"
+  },
+  "release": {
+    "branches": [
+      "master"
+    ]
+  },
+  "husky": {
+    "hooks": {
+      "commit-msg": "commitlint -E  HUSKY_GIT_PARAMS"
+    }
+  },
+  "commitlint": {
+    "extends": [
+      "@commitlint/config-conventional"
+    ],
+    "rules": {
+      "subject-case": [
+        2,
+        "never",
+        [
+          "start-case",
+          "pascal-case"
+        ]
+      ]
+    }
+  }
+}
