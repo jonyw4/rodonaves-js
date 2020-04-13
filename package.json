@@ -10,7 +10,7 @@
     "build-node": "rollup -c && uglifyjs dist/cep-promise.js -cm -o dist/cep-promise.min.js",
     "build": "npm run build-browser && npm run build-node",
     "lint": "eslint 'src/*'",
-    "test": "jest --tls-min-v1.0 --collectCoverage",
+    "test": "jest --collectCoverage",
     "codecov": "codecov",
     "semantic-release": "semantic-release"
   },
@@ -52,6 +52,7 @@
     "eslint": "^6.8.0",
     "eslint-config-airbnb-base": "^14.1.0",
     "eslint-plugin-import": "^2.20.2",
+    "eslint-plugin-jest": "^23.8.2",
     "husky": "^4.2.5",
     "jest": "^25.3.0",
     "rollup": "^2.6.1",
