@@ -1,12 +1,6 @@
 # API Reference
+
 Rodonaves API for node/javascript
-
-
-* [rodonaves-js](#module_rodonaves-js)
-    * [.Rodonaves](#module_rodonaves-js+Rodonaves)
-        * [new Rodonaves(username, password, mode)](#new_module_rodonaves-js+Rodonaves_new)
-        * [.fetch(url, method, params, data)](#module_rodonaves-js+Rodonaves.fetch) ⇒ <code>Promise.&lt;any&gt;</code>
-        * [.getCityByZipCode(zipCode)](#module_rodonaves-js+Rodonaves.getCityByZipCode) ⇒ <code>Promise</code>
 
 <a name="module_rodonaves-js+Rodonaves"></a>
 
@@ -14,11 +8,16 @@ Rodonaves API for node/javascript
 Rodonaves API Class
 
 **Kind**: instance class of [<code>rodonaves-js</code>](#module_rodonaves-js)  
+**Todo**
+
+- [ ] Create function getCityByName(name) using GET /api/v1/busca-cidade?name=''
+
 
 * [.Rodonaves](#module_rodonaves-js+Rodonaves)
     * [new Rodonaves(username, password, mode)](#new_module_rodonaves-js+Rodonaves_new)
     * [.fetch(url, method, params, data)](#module_rodonaves-js+Rodonaves.fetch) ⇒ <code>Promise.&lt;any&gt;</code>
-    * [.getCityByZipCode(zipCode)](#module_rodonaves-js+Rodonaves.getCityByZipCode) ⇒ <code>Promise</code>
+    * [.getCityByZipCode(zipCode)](#module_rodonaves-js+Rodonaves.getCityByZipCode) ⇒ <code>Promise.&lt;BuscaPorCepResponse&gt;</code>
+    * [.BuscaPorCepResponse](#module_rodonaves-js+Rodonaves.BuscaPorCepResponse)
 
 <a name="new_module_rodonaves-js+Rodonaves_new"></a>
 
@@ -33,11 +32,10 @@ Rodonaves API Class
 <a name="module_rodonaves-js+Rodonaves.fetch"></a>
 
 #### Rodonaves.fetch(url, method, params, data) ⇒ <code>Promise.&lt;any&gt;</code>
-Fetch in the RTE API
+INTERNAL USE - Fetch in the RTE API
 
 **Kind**: static method of [<code>Rodonaves</code>](#module_rodonaves-js+Rodonaves)  
-**Promise**: fPromise  
-**Reject**: <code>RodonavesError</code>  
+**Reject**: <code>Error</code>  
 **Fulfill**: <code>any</code> API Response  
 
 | Param | Type | Description |
@@ -49,15 +47,25 @@ Fetch in the RTE API
 
 <a name="module_rodonaves-js+Rodonaves.getCityByZipCode"></a>
 
-#### Rodonaves.getCityByZipCode(zipCode) ⇒ <code>Promise</code>
+#### Rodonaves.getCityByZipCode(zipCode) ⇒ <code>Promise.&lt;BuscaPorCepResponse&gt;</code>
 Get City by Zip Code
 
 **Kind**: static method of [<code>Rodonaves</code>](#module_rodonaves-js+Rodonaves)  
-**Returns**: <code>Promise</code> - Promise object with data information  
+**Reject**: <code>Error</code>  
+**Fulfill**: <code>BuscaPorCepResponse</code> API Response  
 
 | Param | Type | Description |
 | --- | --- | --- |
 | zipCode | <code>String</code> | ZipCode |
 
+<a name="module_rodonaves-js+Rodonaves.BuscaPorCepResponse"></a>
 
-* * *
+#### Rodonaves.BuscaPorCepResponse
+**Kind**: static typedef of [<code>Rodonaves</code>](#module_rodonaves-js+Rodonaves)  
+**Properties**
+
+| Name | Type | Description |
+| --- | --- | --- |
+| valid | <code>bool</code> | True if the token is valid. |
+| id | <code>string</code> | The user id bound to the token. |
+

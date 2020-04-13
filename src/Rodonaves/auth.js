@@ -1,3 +1,4 @@
+// TODO: Create doc
 export default async function auth() {
   const data = await this.fetch('/token', 'POST', undefined, {
     auth_type: this.mode,

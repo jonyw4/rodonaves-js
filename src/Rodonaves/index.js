@@ -5,8 +5,6 @@ import getCotacao from './getCotacao';
 import getPrazoEntrega from './getPrazoEntrega';
 import getCotacaoAndPrazoEntrega from './getCotacaoAndPrazoEntrega';
 
-// TODO: Fn getCityByName(name) => Get city by name GET /api/v1/busca-cidade param name
-// TODO: Rodonaves Errors Docs
 /**
  * @class Rodonaves
  * @classdesc Rodonaves API Class
@@ -16,6 +14,7 @@ import getCotacaoAndPrazoEntrega from './getCotacaoAndPrazoEntrega';
  * @param {String} username Rodonaves username for Auth
  * @param {String} password Rodonaves password for Auth
  * @param {String} mode Mode of the request. Can be dev or prod
+ * @todo Create function getCityByName(name) using GET /api/v1/busca-cidade?name=''
  */
 function Rodonaves(username, password, mode = 'dev', timeout = 1000) {
   this.mode = mode;
