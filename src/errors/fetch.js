@@ -15,9 +15,7 @@ class AxiosTestError extends Error {
     super(message);
 
     this.config = config;
-    if (code) {
-      this.code = code;
-    }
+    this.code = code;
     this.request = request;
     this.response = response;
     this.isAxiosError = true;

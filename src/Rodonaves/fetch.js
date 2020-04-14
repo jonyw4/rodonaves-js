@@ -16,16 +16,23 @@ import {
  * @param {string} method Method. Can be *GET*. *POST*...
  * @param {object} params Querystring params. Its most used in *GET* requests
  * @param {object} data Data. Use for *POST* requests
+ * @param contentType
  * @returns {Promise.<any, (Error)>} Data response of the fetch, or an error if rejected.
  */
-export default async function (url, method = 'GET', params = {}, data = {}) {
+export default async function (url, method = 'GET', params = {}, data = {}, contentType = 'application/json') {
   // Fix problem of TLS with new versions of node
   tls.DEFAULT_MIN_VERSION = 'TLSv1';
 
   // Insert Authorization token in request
-  const headers = { 'Content-Type': 'multipart/form-data' };
+  const headers = { 'Content-Type': contentType };
   if (this.token) {
     headers.Authorization = `Bearer ${this.token}`;
+  }
+
+  // Check if is form data, and transform
+  let transformedData = data;
+  if (contentType === 'multipart/form-data') {
+    transformedData = qs.stringify(data);
   }
 
   try {
@@ -36,10 +43,11 @@ export default async function (url, method = 'GET', params = {}, data = {}) {
       timeout: this.timeout,
       headers,
       params,
-      data: qs.stringify(data),
+      data: transformedData,
     });
     return response.data;
   } catch (error) {
+    // console.log(error);
     if (error.response) {
       throw new RodonavesFetchServerError(error.response.status);
     } else if (error.request) {
