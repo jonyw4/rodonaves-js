@@ -2,6 +2,30 @@
 
 /**
  * @class
+ * @augments {Error}
+ */
+class AxiosTestError extends Error {
+  constructor({
+    message = 'Axios Test Error',
+    config = '',
+    code = '',
+    request = '',
+    response = '',
+  }) {
+    super(message);
+
+    this.config = config;
+    if (code) {
+      this.code = code;
+    }
+    this.request = request;
+    this.response = response;
+    this.isAxiosError = true;
+  }
+}
+
+/**
+ * @class
  * @alias module:rodonaves-js
  * @augments Error
  */
@@ -53,6 +77,7 @@ class RodonavesFetchOtherError extends Error {
 }
 
 export {
+  AxiosTestError,
   RodonavesFetchServerError,
   RodonavesFetchClientError,
   RodonavesFetchOtherError,
