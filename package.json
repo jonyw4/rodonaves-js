@@ -10,9 +10,10 @@
     "build-node": "rollup -c && uglifyjs dist/cep-promise.js -cm -o dist/cep-promise.min.js",
     "build": "npm run build-browser && npm run build-node",
     "lint": "eslint 'src/**/*.js'",
-    "test": "jest --collectCoverage",
+    "test:unit": "jest --collectCoverage ./src",
+    "test:integration": "jest ./tests",
     "codecov": "codecov",
-    "docs": "jsdoc2md -t README.hbs --plugin @godaddy/dmd --files src/**/*.js > README.md",
+    "docs": "jsdoc2md --plugin @godaddy/dmd --files src/**/*.js > API.md",
     "semantic-release": "semantic-release"
   },
   "repository": {
