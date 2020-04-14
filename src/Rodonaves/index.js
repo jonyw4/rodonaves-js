@@ -10,9 +10,9 @@ import getCotacaoAndPrazoEntrega from './getCotacaoAndPrazoEntrega';
  * @alias module:rodonaves-js#Rodonaves
  * @param {string} username Rodonaves username for Auth
  * @param {string} password Rodonaves password for Auth
- * @param {string} mode Mode of the request. Can be dev or prod
- * @param timeout
- * @todo Create function getCityByName(name) using GET /api/v1/busca-cidade?name=''
+ * @param {string} mode Mode of the request. Can be `dev` or `prod`
+ * @param {number} timeout Timeout of the request in *ms*
+ * @todo Create function `getCityByName(name)` using *GET* `/api/v1/busca-cidade?name=''`
  */
 function Rodonaves(username, password, mode = 'dev', timeout = 1000) {
   this.mode = mode;

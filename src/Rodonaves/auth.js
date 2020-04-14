@@ -1,11 +1,9 @@
 /**
- * **FOR INTERNAL USE** - Get token. Used for other functions to put token in header
+ * **FOR INTERNAL USE** - 🔑 Get token. Used for other functions to put token in header
  *
  * @alias module:rodonaves-js#Rodonaves.auth
  * @instance
- * @reject {Error}
- * @fulfill {true}
- * @returns {Promise.<true>}
+ * @returns {Promise.<boolean, (Error)>} True response credentials are ok, or an error if rejected.
  */
 export default async function auth() {
   const data = await this.fetch('/token', 'POST', undefined, {

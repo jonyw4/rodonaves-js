@@ -37,7 +37,7 @@ Creates an instance of RodonavesFetchOtherError.
 **Kind**: instance class of [`rodonaves-js`](#rodonaves-js)  
 **Todo**
 
-- [ ] Create function getCityByName(name) using GET /api/v1/busca-cidade?name=''
+- [ ] Create function `getCityByName(name)` using *GET* `/api/v1/busca-cidade?name=''`
 
 
 - [API Reference](#api-reference)
@@ -58,43 +58,40 @@ Creates an instance of RodonavesFetchOtherError.
 | --- | --- | --- | --- |
 | username | `string` |  | Rodonaves username for Auth |
 | password | `string` |  | Rodonaves password for Auth |
-| mode | `string` | `'dev'` | Mode of the request. Can be dev or prod |
-| timeout |  | `1000` |  |
+| mode | `string` | `'dev'` | Mode of the request. Can be `dev` or `prod` |
+| timeout | `number` | `1000` | Timeout of the request in *ms* |
 
 
 #### Rodonaves.auth()
 
-**FOR INTERNAL USE** - Get token. Used for other functions to put token in header
+**FOR INTERNAL USE** - 🔑 Get token. Used for other functions to put token in header
 
 **Kind**: static method of [`Rodonaves`](#new-rodonavesusername-password-mode-timeout)  
-**Reject**: `Error`  
-**Fulfill**: `true`  
+**Returns**: `Promise.<boolean, (Error)>` - True response credentials are ok, or an error if rejected.  
 
 #### Rodonaves.fetch(url, method, params, data)
 
-**FOR INTERNAL USE** - Fetch in the RTE API
+**FOR INTERNAL USE** - 📨 Fetch in the RTE API
 
 **Kind**: static method of [`Rodonaves`](#new-rodonavesusername-password-mode-timeout)  
-**Reject**: `Error`  
-**Fulfill**: `any` API Response  
+**Returns**: `Promise.<any, (Error)>` - Data response of the fetch, or an error if rejected.  
 
 | Param | Type | Description |
 | --- | --- | --- |
-| url | `string` | URL |
-| method | `string` | Method |
-| params | `object` | Querystring params |
-| data | `object` | Data |
+| url | `string` | URL. Route to the fetch. can be `/test` |
+| method | `string` | Method. Can be *GET*. *POST*... |
+| params | `object` | Querystring params. Its most used in *GET* requests |
+| data | `object` | Data. Use for *POST* requests |
 
 
 #### Rodonaves.getCityByZipCode(zipCode)
 
-Get City by Zip Code
+🌆 Get City by Zip Code
 
 **Kind**: static method of [`Rodonaves`](#new-rodonavesusername-password-mode-timeout)  
-**Reject**: `Error`  
-**Fulfill**: `BuscaPorCepResponse` API Response  
+**Returns**: `Promise.<BuscaPorCepResponse, (Error)>` - Return a city data, or an error if rejected.  
 
 | Param | Type | Description |
 | --- | --- | --- |
-| zipCode | `string` | ZipCode |
+| zipCode | `string` | ZipCode Just numbers |
 

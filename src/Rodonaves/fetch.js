@@ -8,17 +8,15 @@ import {
 } from '../errors';
 
 /**
- * **FOR INTERNAL USE** - Fetch in the RTE API
+ * **FOR INTERNAL USE** - 📨 Fetch in the RTE API
  *
  * @alias module:rodonaves-js#Rodonaves.fetch
  * @instance
- * @param {string} url URL
- * @param {string} method Method
- * @param {object} params Querystring params
- * @param {object} data Data
- * @reject {Error}
- * @fulfill {any} API Response
- * @returns {Promise.<any>}
+ * @param {string} url URL. Route to the fetch. can be `/test`
+ * @param {string} method Method. Can be *GET*. *POST*...
+ * @param {object} params Querystring params. Its most used in *GET* requests
+ * @param {object} data Data. Use for *POST* requests
+ * @returns {Promise.<any, (Error)>} Data response of the fetch, or an error if rejected.
  */
 export default async function (url, method = 'GET', params = {}, data = {}) {
   // Fix problem of TLS with new versions of node

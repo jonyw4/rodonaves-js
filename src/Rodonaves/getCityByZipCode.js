@@ -1,20 +1,19 @@
 // TODO: BuscaPorCepResponse correct def
 
 /**
- * @typedef {Object} BuscaPorCepResponse
- * @memberof module:rodonaves-js#Rodonaves
+ * @typedef {object} BuscaPorCepResponse
+ * @memberof module:Rodonaves#Rodonaves
  * @property {bool} valid True if the token is valid.
  * @property {string} id The user id bound to the token.
  */
 
 /**
- * Get City by Zip Code
+ * 🌆 Get City by Zip Code
+ *
  * @alias module:rodonaves-js#Rodonaves.getCityByZipCode
  * @instance
- * @param {String} zipCode ZipCode
- * @reject {Error}
- * @fulfill {BuscaPorCepResponse} API Response
- * @returns {Promise.<BuscaPorCepResponse>}
+ * @param {string} zipCode ZipCode Just numbers
+ * @returns {Promise.<BuscaPorCepResponse, (Error)>} Return a city data, or an error if rejected.
  */
 export default async function (zipCode) {
   if (!this.token) await this.auth();
