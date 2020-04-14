@@ -5,6 +5,7 @@ env:
 extends:
   - airbnb-base
   - "plugin:jest/recommended"
+  - "plugin:jsdoc/recommended"
 globals:
   Atomics: readonly
   SharedArrayBuffer: readonly
@@ -14,4 +15,5 @@ parserOptions:
   sourceType: module
 rules: {}
 plugins:
-  - jest
+  - "jest"
+  - "jsdoc"
