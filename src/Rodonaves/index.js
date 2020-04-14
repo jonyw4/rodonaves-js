@@ -6,14 +6,12 @@ import getPrazoEntrega from './getPrazoEntrega';
 import getCotacaoAndPrazoEntrega from './getCotacaoAndPrazoEntrega';
 
 /**
- * @class Rodonaves
- * @classdesc Rodonaves API Class
- * @memberof module:rodonaves-js
- * @instance
- * @constructor
- * @param {String} username Rodonaves username for Auth
- * @param {String} password Rodonaves password for Auth
- * @param {String} mode Mode of the request. Can be dev or prod
+ * @class
+ * @alias module:rodonaves-js#Rodonaves
+ * @param {string} username Rodonaves username for Auth
+ * @param {string} password Rodonaves password for Auth
+ * @param {string} mode Mode of the request. Can be dev or prod
+ * @param timeout
  * @todo Create function getCityByName(name) using GET /api/v1/busca-cidade?name=''
  */
 function Rodonaves(username, password, mode = 'dev', timeout = 1000) {
@@ -33,8 +31,7 @@ Rodonaves.prototype.getPrazoEntrega = getPrazoEntrega;
 Rodonaves.prototype.getCotacaoAndPrazoEntrega = getCotacaoAndPrazoEntrega;
 
 /**
- * Rodonaves API for node/javascript
  * @module rodonaves-js
- * @typicalname rodonaves
  */
+
 export default Rodonaves;
