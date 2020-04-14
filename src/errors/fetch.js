@@ -1,35 +1,54 @@
 /* eslint-disable max-classes-per-file */
 
-// TODO: Create doc
-// TODO: Create test
-class RodonavesFetchError extends Error {
-  constructor(message) {
-    super(message);
-    this.message = 'Rodonaves Fetch Error: ';
-  }
-}
-
-class RodonavesFetchServerError extends RodonavesFetchError {
+/**
+ * @class
+ * @alias module:rodonaves-js
+ * @augments Error
+ */
+class RodonavesFetchServerError extends Error {
+  /**
+   * Creates an instance of RodonavesFetchServerError.
+   *
+   * @param {string} status Status Code passed from the server
+   * @memberof RodonavesFetchServerError
+   */
   constructor(status) {
-    super();
+    super(`Server error status ${status} `);
     this.name = 'RodonavesFetchServerError';
-    this.message = `${this.message}${status}Server error status `;
   }
 }
 
-class RodonavesFetchClientError extends RodonavesFetchError {
+/**
+ * @class
+ * @alias module:rodonaves-js
+ * @augments Error
+ */
+class RodonavesFetchClientError extends Error {
+  /**
+   * Creates an instance of RodonavesFetchClientError.
+   *
+   * @memberof RodonavesFetchClientError
+   */
   constructor() {
-    super();
+    super('Client error');
     this.name = 'RodonavesFetchClientError';
-    this.message = `${this.message}Client error`;
   }
 }
 
-class RodonavesFetchOtherError extends RodonavesFetchError {
+/**
+ * @class
+ * @alias module:rodonaves-js
+ * @augments Error
+ */
+class RodonavesFetchOtherError extends Error {
+  /**
+   * Creates an instance of RodonavesFetchOtherError.
+   *
+   * @memberof RodonavesFetchOtherError
+   */
   constructor() {
-    super();
+    super('Other Error');
     this.name = 'RodonavesFetchOtherError';
-    this.message = `${this.message}Client error`;
   }
 }
 
