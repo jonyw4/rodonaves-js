@@ -8,13 +8,14 @@ import {
 } from '../errors';
 
 /**
- * INTERNAL USE - Fetch in the RTE API
+ * **FOR INTERNAL USE** - Fetch in the RTE API
+ *
  * @alias module:rodonaves-js#Rodonaves.fetch
  * @instance
- * @param {String} url URL
- * @param {String} method Method
- * @param {Object} params Querystring params
- * @param {Object} data Data
+ * @param {string} url URL
+ * @param {string} method Method
+ * @param {object} params Querystring params
+ * @param {object} data Data
  * @reject {Error}
  * @fulfill {any} API Response
  * @returns {Promise.<any>}
