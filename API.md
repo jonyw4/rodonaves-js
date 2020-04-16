@@ -14,6 +14,8 @@ Name | Description
 Name | Description
 ------ | -----------
 [RodonavesGetCityByZipCodeResponse] | 
+[RodonavesSimulateQuoteResponse] | 
+[RodonavesPack] | 
 
 
 ## rodonaves-js
@@ -25,9 +27,11 @@ Name | Description
     * [new RodonavesFetchOtherError()]
     * [.Rodonaves]
         * [new Rodonaves(username, password, mode, timeout)]
-        * [.auth()]
-        * [.fetch(url, method, params, data)]
-        * [.getCityByZipCode(zipCode)]
+        * [~auth()]
+        * [~fetch(url, method, params, data, contentType)]
+        * [~getCityByZipCode(zipCode)]
+        * [~getDeliveryTime(originZipCode, destinationZipCode)]
+        * [~simulateQuote(originZipCode, destinationZipCode, packs, invoiceValue, destinationTaxId)]
 
 
 ### new RodonavesFetchServerError(status)
@@ -55,14 +59,19 @@ Creates an instance of RodonavesFetchOtherError.
 **Kind**: instance class of [`rodonaves-js`]  
 **Todo**
 
-- [ ] Create function `getCityByName(name)` using *GET* `/api/v1/busca-cidade?name=''`
+- [ ] Create function `getCityByName(name)`
+- [ ] Create function `tracking(name)`
+- [ ] Create function `quote()`
+Create function `updateQuote()`
 
 
 * [.Rodonaves]
     * [new Rodonaves(username, password, mode, timeout)]
-    * [.auth()]
-    * [.fetch(url, method, params, data)]
-    * [.getCityByZipCode(zipCode)]
+    * [~auth()]
+    * [~fetch(url, method, params, data, contentType)]
+    * [~getCityByZipCode(zipCode)]
+    * [~getDeliveryTime(originZipCode, destinationZipCode)]
+    * [~simulateQuote(originZipCode, destinationZipCode, packs, invoiceValue, destinationTaxId)]
 
 
 #### new Rodonaves(username, password, mode, timeout)
@@ -76,18 +85,18 @@ Creates an instance of RodonavesFetchOtherError.
 | timeout | `number` | `1000` | Timeout of the request in *ms* |
 
 
-#### Rodonaves.auth()
+#### Rodonaves~auth()
 
 **FOR INTERNAL USE** - 🔑 Get token. Used for other functions to put token in header
 
-**Kind**: static method of [`Rodonaves`]  
+**Kind**: inner method of [`Rodonaves`]  
 **Returns**: `Promise.<boolean, (Error)>` - True response credentials are ok, or an error if rejected.  
 
-#### Rodonaves.fetch(url, method, params, data)
+#### Rodonaves~fetch(url, method, params, data, contentType)
 
 **FOR INTERNAL USE** - 📨 Fetch in the RTE API
 
-**Kind**: static method of [`Rodonaves`]  
+**Kind**: inner method of [`Rodonaves`]  
 **Returns**: `Promise.<any, (Error)>` - Data response of the fetch, or an error if rejected.  
 
 | Param | Type | Description |
@@ -96,18 +105,48 @@ Creates an instance of RodonavesFetchOtherError.
 | method | `string` | Method. Can be *GET*. *POST*... |
 | params | `object` | Querystring params. Its most used in *GET* requests |
 | data | `object` | Data. Use for *POST* requests |
+| contentType |  |  |
 
 
-#### Rodonaves.getCityByZipCode(zipCode)
+#### Rodonaves~getCityByZipCode(zipCode)
 
 🌆 Get City by Zip Code
 
-**Kind**: static method of [`Rodonaves`]  
+**Kind**: inner method of [`Rodonaves`]  
 **Returns**: `Promise.<RodonavesGetCityByZipCodeResponse, (Error)>` - Return a city data, or an error if rejected.  
 
 | Param | Type | Description |
 | --- | --- | --- |
 | zipCode | `string` | ZipCode Just numbers |
+
+
+#### Rodonaves~getDeliveryTime(originZipCode, destinationZipCode)
+
+📅 Get Delivery Time
+
+**Kind**: inner method of [`Rodonaves`]  
+**Returns**: `Promise.<number, (Error)>` - Return a delivery time, or an error if rejected.  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| originZipCode | `string` | Origin ZipCode |
+| destinationZipCode | `string` | Destination ZipCode |
+
+
+#### Rodonaves~simulateQuote(originZipCode, destinationZipCode, packs, invoiceValue, destinationTaxId)
+
+💵 Get Quote for Shipping
+
+**Kind**: inner method of [`Rodonaves`]  
+**Returns**: `Promise.<RodonavesSimulateQuoteResponse, (Error)>` - Return the simulate quote data, or an error if rejected.  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| originZipCode | `string` | Origin ZipCode |
+| destinationZipCode | `string` | Destination ZipCode |
+| packs | `Array.<RodonavesPack>` | A list of boxes for shipping |
+| invoiceValue | `number` | Total money value of the items in shipment |
+| destinationTaxId | `number` | CPF/CNPJ of the destination |
 
 
 ## AxiosTestError
@@ -135,11 +174,42 @@ Creates an instance of RodonavesFetchOtherError.
 | CityAttended | `boolean` | If city is attended |
 | NotAttendedMessage | `string` | Message to location not attended |
 
+
+## RodonavesSimulateQuoteResponse
+
+**Kind**: global typedef  
+**Properties**
+
+| Name | Type | Description |
+| --- | --- | --- |
+| Value | `number` | Value |
+| DeliveryTime | `number` | Delivery Time |
+| ProtocolNumber | `number` | Protocol Number |
+| CustomerEmail | `string` | Customer Email |
+| Cubed | `boolean` | if is cubed |
+| Message | `string` | Message |
+| ExpirationDay | `string` | Expiration Day |
+
+
+## RodonavesPack
+
+**Kind**: global typedef  
+**Properties**
+
+| Name | Type | Description |
+| --- | --- | --- |
+| weight | `number` | Weight (kg) |
+| length | `number` | Length (cm) |
+| height | `number` | Height (cm) |
+| width | `number` | Width (cm) |
+
 <!-- LINKS -->
 
 [rodonaves-js]:#rodonaves-js
 [AxiosTestError]:#axiostesterror
 [RodonavesGetCityByZipCodeResponse]:#rodonavesgetcitybyzipcoderesponse
+[RodonavesSimulateQuoteResponse]:#rodonavessimulatequoteresponse
+[RodonavesPack]:#rodonavespack
 [.Rodonaves]:#rodonaves-jsrodonaves
 [`rodonaves-js`]:#rodonaves-js
 [`Rodonaves`]:#new-rodonavesusername-password-mode-timeout
@@ -147,6 +217,8 @@ Creates an instance of RodonavesFetchOtherError.
 [new RodonavesFetchClientError()]:#new-rodonavesfetchclienterror
 [new RodonavesFetchOtherError()]:#new-rodonavesfetchothererror
 [new Rodonaves(username, password, mode, timeout)]:#new-rodonavesusername-password-mode-timeout
-[.auth()]:#rodonavesauth
-[.fetch(url, method, params, data)]:#rodonavesfetchurl-method-params-data
-[.getCityByZipCode(zipCode)]:#rodonavesgetcitybyzipcodezipcode
+[~auth()]:#rodonavesauth
+[~fetch(url, method, params, data, contentType)]:#rodonavesfetchurl-method-params-data-contenttype
+[~getCityByZipCode(zipCode)]:#rodonavesgetcitybyzipcodezipcode
+[~getDeliveryTime(originZipCode, destinationZipCode)]:#rodonavesgetdeliverytimeoriginzipcode-destinationzipcode
+[~simulateQuote(originZipCode, destinationZipCode, packs, invoiceValue, destinationTaxId)]:#rodonavessimulatequoteoriginzipcode-destinationzipcode-packs-invoicevalue-destinationtaxid
