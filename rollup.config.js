@@ -13,9 +13,14 @@ const defaultPlugins = [
 export default [
   {
     input,
-    plugins: [].concat(defaultPlugins, [commonjs()]),
     external: ['axios', 'qs', 'tls'],
+    plugins: [].concat(defaultPlugins, [commonjs()]),
     output: {
+      globals: {
+        axios: 'axios',
+        qs: 'qs',
+        tls: 'tls',
+      },
       file: 'dist/rodonaves-js.js',
       format: 'umd',
       name: 'rodonaves',
@@ -23,6 +28,8 @@ export default [
   },
   {
     input,
+    external: ['axios', 'qs', 'tls'],
+
     plugins: [].concat(defaultPlugins, [
       resolve({
         browser: true,
@@ -31,6 +38,11 @@ export default [
     ]),
     context: 'window',
     output: {
+      globals: {
+        axios: 'axios',
+        qs: 'qs',
+        tls: 'tls',
+      },
       file: 'dist/rodonaves-js-browser.js',
       format: 'umd',
       name: 'rodonaves',

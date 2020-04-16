@@ -1,8 +1,8 @@
 (function (global, factory) {
-  typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('axios'), require('qs'), require('tls')) :
-  typeof define === 'function' && define.amd ? define(['exports', 'axios', 'qs', 'tls'], factory) :
-  (global = global || self, factory(global.rodonaves = {}, global.axios, global.qs, global.tls));
-}(this, (function (exports, axios, qs, tls) { 'use strict';
+  typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory(require('axios'), require('qs'), require('tls')) :
+  typeof define === 'function' && define.amd ? define(['axios', 'qs', 'tls'], factory) :
+  (global = global || self, global.rodonaves = factory(global.axios, global.qs, global.tls));
+}(this, (function (axios, qs, tls) { 'use strict';
 
   axios = axios && Object.prototype.hasOwnProperty.call(axios, 'default') ? axios['default'] : axios;
   qs = qs && Object.prototype.hasOwnProperty.call(qs, 'default') ? qs['default'] : qs;
@@ -240,7 +240,6 @@
 
   /**
    * @class
-   * @alias module:rodonaves-js
    * @augments Error
    */
 
@@ -270,7 +269,6 @@
   }( /*#__PURE__*/_wrapNativeSuper(Error));
   /**
    * @class
-   * @alias module:rodonaves-js
    * @augments Error
    */
 
@@ -299,7 +297,6 @@
   }( /*#__PURE__*/_wrapNativeSuper(Error));
   /**
    * @class
-   * @alias module:rodonaves-js
    * @augments Error
    */
 
@@ -335,7 +332,7 @@
    * @param {string} method Method. Can be *GET*. *POST*...
    * @param {object} params Querystring params. Its most used in *GET* requests
    * @param {object} data Data. Use for *POST* requests
-   * @param contentType Type of data content. Use for *POST* requests
+   * @param {string} contentType Type of data content. Use for *POST* requests
    * @returns {Promise.<any, (Error)>} Data response of the fetch, or an error if rejected.
    */
 
@@ -471,6 +468,7 @@
    * @typedef {object} RodonavesGetCityByZipCodeResponse
    * @property {number} CityId City Id
    * @property {string} CityDescription City name
+   * @property {object} UnitFederation State Information
    * @property {string} UnitFederation.Description State of the city
    * @property {string} Street Street
    * @property {string} District District
@@ -728,12 +726,6 @@
    * @module rodonaves-js
    */
 
-  exports.Rodonaves = Rodonaves;
-  exports.RodonavesFetchClientError = RodonavesFetchClientError;
-  exports.RodonavesFetchOtherError = RodonavesFetchOtherError;
-  exports.RodonavesFetchServerError = RodonavesFetchServerError;
-  exports.default = Rodonaves;
-
-  Object.defineProperty(exports, '__esModule', { value: true });
+  return Rodonaves;
 
 })));
