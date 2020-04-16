@@ -1,9 +1,8 @@
 import fetch from './fetch';
 import auth from './auth';
 import getCityByZipCode from './getCityByZipCode';
-import getCotacao from './getCotacao';
-import getPrazoEntrega from './getPrazoEntrega';
-import getCotacaoAndPrazoEntrega from './getCotacaoAndPrazoEntrega';
+import simulateQuote from './simulateQuote';
+import getDeliveryTime from './getDeliveryTime';
 
 /**
  * @class
@@ -12,7 +11,10 @@ import getCotacaoAndPrazoEntrega from './getCotacaoAndPrazoEntrega';
  * @param {string} password Rodonaves password for Auth
  * @param {string} mode Mode of the request. Can be `dev` or `prod`
  * @param {number} timeout Timeout of the request in *ms*
- * @todo Create function `getCityByName(name)` using *GET* `/api/v1/busca-cidade?name=''`
+ * @todo Create function `getCityByName(name)`
+ * @todo Create function `tracking(name)`
+ * @todo Create function `quote()`
+ * @todo Create function `updateQuote()`
  */
 function Rodonaves(username, password, mode = 'dev', timeout = 1000) {
   this.mode = mode;
@@ -26,9 +28,8 @@ Rodonaves.prototype.constructor = Rodonaves;
 Rodonaves.prototype.fetch = fetch;
 Rodonaves.prototype.auth = auth;
 Rodonaves.prototype.getCityByZipCode = getCityByZipCode;
-Rodonaves.prototype.getCotacao = getCotacao;
-Rodonaves.prototype.getPrazoEntrega = getPrazoEntrega;
-Rodonaves.prototype.getCotacaoAndPrazoEntrega = getCotacaoAndPrazoEntrega;
+Rodonaves.prototype.getDeliveryTime = getDeliveryTime;
+Rodonaves.prototype.simulateQuote = simulateQuote;
 
 /**
  * @module rodonaves-js

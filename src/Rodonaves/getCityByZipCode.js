@@ -17,8 +17,7 @@
 /**
  * 🌆 Get City by Zip Code
  *
- * @alias module:rodonaves-js#Rodonaves.getCityByZipCode
- * @instance
+ * @alias module:rodonaves-js#Rodonaves~getCityByZipCode
  * @param {string} zipCode ZipCode Just numbers
  * @returns {Promise.<RodonavesGetCityByZipCodeResponse, (Error)>} Return a city data, or an error if rejected.
  */
