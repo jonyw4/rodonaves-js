@@ -10,7 +10,7 @@
     "build-node": "rollup -c && uglifyjs dist/rodonaves-js.js -cm -o dist/rodonaves-js.min.js",
     "build": "npm run build-browser && npm run build-node",
     "lint": "eslint 'src/**/*.js'",
-    "test": "npm run test && codecov",
+    "test": "npm run test:unit && codecov",
     "test:unit": "jest --collectCoverage ./src",
     "test:integration": "jest ./tests",
     "docs": "jsdoc2md --plugin @godaddy/dmd --files src/**/*.js > API.md",
