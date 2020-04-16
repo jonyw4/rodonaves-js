@@ -24,7 +24,6 @@ class AxiosTestError extends Error {
 
 /**
  * @class
- * @alias module:rodonaves-js
  * @augments Error
  */
 class RodonavesFetchServerError extends Error {
@@ -42,7 +41,6 @@ class RodonavesFetchServerError extends Error {
 
 /**
  * @class
- * @alias module:rodonaves-js
  * @augments Error
  */
 class RodonavesFetchClientError extends Error {
@@ -59,7 +57,6 @@ class RodonavesFetchClientError extends Error {
 
 /**
  * @class
- * @alias module:rodonaves-js
  * @augments Error
  */
 class RodonavesFetchOtherError extends Error {
