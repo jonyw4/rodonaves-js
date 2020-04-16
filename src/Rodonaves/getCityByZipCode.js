@@ -2,6 +2,7 @@
  * @typedef {object} RodonavesGetCityByZipCodeResponse
  * @property {number} CityId City Id
  * @property {string} CityDescription City name
+ * @property {object} UnitFederation State Information
  * @property {string} UnitFederation.Description State of the city
  * @property {string} Street Street
  * @property {string} District District

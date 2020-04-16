@@ -81,7 +81,7 @@ describe('Rodonaves.simulateQuote()', () => {
     });
   });
 
-  it('should call simulateQuote without token API with success', async () => {
+  it('should call simulateQuote without pack and throw a error', async () => {
     const rodonaves = new Rodonaves('u', 'p');
     const simulateQuote = rodonaves.simulateQuote(
       '12608220',
