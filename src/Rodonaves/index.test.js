@@ -1,14 +1,13 @@
+/* eslint-disable no-prototype-builtins */
 import Rodonaves from './index';
 
 describe('Rodonaves.constructor()', () => {
   test('check if class has all prototypes', async () => {
-    expect(Object.prototype.hasOwnProperty.call(Rodonaves, 'fetch')).toBe(true);
-    expect(Object.prototype.hasOwnProperty.call(Rodonaves, 'auth')).toBe(true);
-    expect(Object.prototype.hasOwnProperty.call(Rodonaves, 'getCityByZipCode')).toBe(true);
-    expect(Object.prototype.hasOwnProperty.call(Rodonaves, 'getDeliveryTime')).toBe(true);
-    expect(
-      Object.prototype.hasOwnProperty.call(Rodonaves, 'simulateQuote'),
-    ).toBe(true);
+    expect(Rodonaves.prototype.hasOwnProperty('fetch')).toBe(true);
+    expect(Rodonaves.prototype.hasOwnProperty('auth')).toBe(true);
+    expect(Rodonaves.prototype.hasOwnProperty('getCityByZipCode')).toBe(true);
+    expect(Rodonaves.prototype.hasOwnProperty('getDeliveryTime')).toBe(true);
+    expect(Rodonaves.prototype.hasOwnProperty('simulateQuote')).toBe(true);
   });
 
   test('calls constructor with default params and check const', async () => {
