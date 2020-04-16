@@ -1,8 +1,7 @@
 /**
  * 📅 Get Delivery Time
  *
- * @alias module:rodonaves-js#Rodonaves.getPrazoEntrega
- * @instance
+ * @alias module:rodonaves-js#Rodonaves~getDeliveryTime
  * @param {string} originZipCode Origin ZipCode
  * @param {string} destinationZipCode Destination ZipCode
  * @returns {Promise.<number, (Error)>} Return a delivery time, or an error if rejected.
@@ -13,10 +12,9 @@ export default async function (originZipCode, destinationZipCode) {
 
   if (!this.token) await this.auth();
 
-  // TODO: Improve catch error
   const [originCityData, destinationCityData] = await Promise.all([
-    this.getCityByZipCode(filteredOriginZipCode).catch((e) => e),
-    this.getCityByZipCode(filteredDestinationZipCode).catch((e) => e),
+    this.getCityByZipCode(filteredOriginZipCode),
+    this.getCityByZipCode(filteredDestinationZipCode),
   ]);
 
   const data = {
@@ -25,6 +23,6 @@ export default async function (originZipCode, destinationZipCode) {
     DestinationCityDescription: destinationCityData.CityDescription,
     DestinationUFDescription: destinationCityData.UnitFederation.Description,
   };
-  const { Value } = this.fetch('/api/v1/prazo-entrega', 'POST', {}, data);
-  return Value;
+  const { DeliveryTime } = await this.fetch('/api/v1/prazo-entrega', 'POST', {}, data);
+  return DeliveryTime;
 }
