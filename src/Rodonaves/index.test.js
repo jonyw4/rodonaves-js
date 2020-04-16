@@ -5,11 +5,8 @@ describe('Rodonaves.constructor()', () => {
     expect(Rodonaves.prototype.hasOwnProperty('fetch')).toBe(true);
     expect(Rodonaves.prototype.hasOwnProperty('auth')).toBe(true);
     expect(Rodonaves.prototype.hasOwnProperty('getCityByZipCode')).toBe(true);
-    expect(Rodonaves.prototype.hasOwnProperty('getCotacao')).toBe(true);
-    expect(Rodonaves.prototype.hasOwnProperty('getPrazoEntrega')).toBe(true);
-    expect(Rodonaves.prototype.hasOwnProperty('getCotacaoAndPrazoEntrega')).toBe(
-      true,
-    );
+    expect(Rodonaves.prototype.hasOwnProperty('getDeliveryTime')).toBe(true);
+    expect(Rodonaves.prototype.hasOwnProperty('simulateQuote')).toBe(true);
   });
 
   test('calls constructor with default params and check const', async () => {

@@ -20,7 +20,13 @@ describe('Rodonaves.fetch()', () => {
     }));
 
     const rodonaves = new Rodonaves('u', 'p');
-    const response = await rodonaves.fetch('/token', 'GET', { user: 'u', password: 'p' });
+    const response = await rodonaves.fetch(
+      '/token',
+      'GET',
+      { user: 'u', password: 'p' },
+      {},
+      'multipart/form-data',
+    );
 
     expect(response).toEqual({ access_token: 'token123' });
     expect(axios).toHaveBeenCalledTimes(1);

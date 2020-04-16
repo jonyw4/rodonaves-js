@@ -4,11 +4,11 @@ import Rodonaves from './index';
 jest.mock('axios');
 axios.mockResolvedValue();
 
-describe('Rodonaves.getCityByCode()', () => {
+describe('Rodonaves.getCityByZipCode()', () => {
   afterEach(() => {
     jest.clearAllMocks();
   });
-  it('should call getCityByCode without token API with success', async () => {
+  it('should call getCityByZipCode without token API with success', async () => {
     axios
       .mockImplementationOnce(() => Promise.resolve({
         data: { access_token: 'token123' },
@@ -29,15 +29,15 @@ describe('Rodonaves.getCityByCode()', () => {
         zipCode: '12608160',
       },
       headers: {
-        'Content-Type': 'multipart/form-data',
+        'Content-Type': 'application/json',
         Authorization: 'Bearer token123',
       },
-      data: '',
+      data: {},
       timeout: 1000,
     });
   });
 
-  it('should call getCityByCode with token API with success', async () => {
+  it('should call getCityByZipCode with token API with success', async () => {
     axios.mockImplementationOnce(() => Promise.resolve({
       data: { name: 'cityName' },
     }));
@@ -55,10 +55,10 @@ describe('Rodonaves.getCityByCode()', () => {
         zipCode: '12608160',
       },
       headers: {
-        'Content-Type': 'multipart/form-data',
+        'Content-Type': 'application/json',
         Authorization: 'Bearer 123',
       },
-      data: '',
+      data: {},
       timeout: 1000,
     });
   });
