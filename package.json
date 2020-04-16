@@ -6,8 +6,8 @@
   "module": "dist/rodonaves-js-browser.min.js",
   "browser": "dist/rodonaves-js-browser.min.js",
   "scripts": {
-    "build-browser": "rollup -c && uglifyjs dist/cep-promise-browser.js -cm -o dist/cep-promise-browser.min.js",
-    "build-node": "rollup -c && uglifyjs dist/cep-promise.js -cm -o dist/cep-promise.min.js",
+    "build-browser": "rollup -c && uglifyjs dist/rodonaves-js-browser.js -cm -o dist/rodonaves-js-browser.min.js",
+    "build-node": "rollup -c && uglifyjs dist/rodonaves-js.js -cm -o dist/rodonaves-js.min.js",
     "build": "npm run build-browser && npm run build-node",
     "lint": "eslint 'src/**/*.js'",
     "test:unit": "jest --collectCoverage ./src",

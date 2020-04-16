@@ -1,14 +1,12 @@
 import babel from 'rollup-plugin-babel';
 import commonjs from '@rollup/plugin-commonjs';
 import resolve from '@rollup/plugin-node-resolve';
-import pkg from './package.json';
 
-const input = 'src/rodonaves-js.js';
+const input = 'src/index.js';
 const defaultPlugins = [
   babel({
     babelrc: false,
-    plugins: ['external-helpers'],
-    presets: [['env', { modules: false }]],
+    presets: [['@babel/env', { modules: false }]],
   }),
 ];
 
@@ -16,8 +14,9 @@ export default [
   {
     input,
     plugins: [].concat(defaultPlugins, [commonjs()]),
+    external: ['axios', 'qs', 'tls'],
     output: {
-      file: pkg.main,
+      file: 'dist/rodonaves-js.js',
       format: 'umd',
       name: 'rodonaves',
     },
@@ -32,7 +31,7 @@ export default [
     ]),
     context: 'window',
     output: {
-      file: pkg.module,
+      file: 'dist/rodonaves-js-browser.js',
       format: 'umd',
       name: 'rodonaves',
     },
