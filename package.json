@@ -65,6 +65,9 @@
     "semantic-release": "^17.0.4",
     "uglify-js": "^3.8.1"
   },
+  "publishConfig": {
+    "access": "public"
+  },
   "release": {
     "branches": [
       "master",
