@@ -1,4 +1,4 @@
-import { Rodonaves } from '../../src';
+import Rodonaves from '../../src';
 
 test('call simulateQuote and check response', async () => {
   const rodonaves = new Rodonaves(
