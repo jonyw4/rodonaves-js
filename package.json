@@ -6,8 +6,8 @@
   "module": "dist/rodonaves-js-browser.min.js",
   "browser": "dist/rodonaves-js-browser.min.js",
   "scripts": {
-    "build-browser": "rollup -c && uglifyjs dist/rodonaves-js-browser.js -cm -o dist/rodonaves-js-browser.min.js",
-    "build-node": "rollup -c && uglifyjs dist/rodonaves-js.js -cm -o dist/rodonaves-js.min.js",
+    "build-browser": "rollup -c && terser dist/rodonaves-js-browser.js -c -o dist/rodonaves-js-browser.min.js",
+    "build-node": "rollup -c && terser dist/rodonaves-js.js -c -o dist/rodonaves-js.min.js",
     "build": "npm run build-browser && npm run build-node",
     "lint": "eslint 'src/**/*.js'",
     "test": "npm run test:unit && codecov",
@@ -63,7 +63,7 @@
     "rollup": "^2.6.1",
     "rollup-plugin-babel": "^4.4.0",
     "semantic-release": "^17.0.4",
-    "uglify-js": "^3.8.1"
+    "terser": "^4.6.11"
   },
   "publishConfig": {
     "access": "public"
@@ -71,7 +71,10 @@
   "release": {
     "branches": [
       "master",
-      {"name": "beta", "prerelease": true}
+      {
+        "name": "beta",
+        "prerelease": true
+      }
     ]
   },
   "husky": {
