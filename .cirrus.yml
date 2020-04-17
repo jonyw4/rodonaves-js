@@ -25,3 +25,4 @@ task:
     - name: Deploy
       depends_on:
         - Build
+      deploy_script: npx semantic-release
