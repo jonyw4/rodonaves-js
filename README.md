@@ -1,7 +1,7 @@
 # Rodonaves Client API - By CarimFlex
 
 [![npm (scoped)](https://img.shields.io/npm/v/@carimflex/rodonaves-js.svg)](https://www.npmjs.com/package/@carimflex/rodonaves-js)
-[![Build Status](https://api.cirrus-ci.com/github/<1carimflex>/rodonaves-js.svg)](https://cirrus-ci.com/github/<1carimflex>/rodonaves-js)
+[![Build Status](https://api.cirrus-ci.com/github/1carimflex/rodonaves-js.svg)](https://cirrus-ci.com/github/1carimflex/rodonaves-js)
 [![codecov](https://codecov.io/gh/1carimflex/rodonaves-js/branch/trunk/graph/badge.svg)](https://codecov.io/gh/1carimflex/rodonaves-js)
 [![semantic-release](https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-e10079.svg)](https://github.com/semantic-release/semantic-release)
 
