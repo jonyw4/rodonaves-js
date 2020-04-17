@@ -7,6 +7,12 @@ import {
   RodonavesFetchServerError,
 } from '../errors';
 
+if (tls) {
+  // Fix problem of TLS with new versions of node
+  tls.DEFAULT_MIN_VERSION = 'TLSv1';
+}
+
+
 /**
  * **FOR INTERNAL USE** - 📨 Fetch in the RTE API
  *
@@ -19,9 +25,6 @@ import {
  * @returns {Promise.<any, (Error)>} Data response of the fetch, or an error if rejected.
  */
 export default async function (url, method = 'GET', params = {}, data = {}, contentType = 'application/json') {
-  // Fix problem of TLS with new versions of node
-  tls.DEFAULT_MIN_VERSION = 'TLSv1';
-
   // Insert Authorization token in request
   const headers = { 'Content-Type': contentType };
   if (this.token) {
