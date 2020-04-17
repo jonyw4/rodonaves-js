@@ -16,9 +16,9 @@ A JavaScript library to interface with Rodonaves API, it works in the browser an
 
 ### How to use
 
-#### Browser usando CDN
+#### Browser using CDN (Rodonaves + Axios + QS)
 ```
-<script src="https://cdn.jsdelivr.net/npm/@carimflex/rodonaves-js/dist/rodonaves-js.js"></script>
+<script src="//cdn.jsdelivr.net/combine/npm/axios@0.19.2/dist/axios.js,npm/qs@6.9.3/dist/qs.js,npm/@carimflex/rodonaves-js@1.0.0-beta.2/dist/rodonaves-js-browser.js"></script>
 ```
 
 #### npm
