@@ -1,0 +1,27 @@
+container:
+  image: node:latest
+
+environment:
+  CODECOV_TOKEN: ENCRYPTED[!5b074efbaf5bfbebe00809684d12c4c76ade7ff9278681bce6c96993f166a424b99f14cdbfa2d0f5057a188f23614426!]
+  NPM_TOKEN: ENCRYPTED[!56081a65ed496f924cff4925a62e652094dde9164c8faac937864776e6fb0db76b958e4fabdc687d3ae5c64cea120175!]
+  GH_TOKEN: ENCRYPTED[!eb995cbce7d474f88e3b6b649d18cfc107e73cc0aa0bc9ab8c3138b85de431f1c053251dd56ee73bda3fb45f1c940c84!]
+
+task:
+  node_modules_cache:
+    folder: node_modules
+    fingerprint_script: cat package-lock.json
+    populate_script: npm ci
+
+  matrix:
+    - name: Lint
+      lint_script: npm run lint
+    - name: Test
+      test_script: npm run test
+    - name: Build
+      depends_on:
+        - Lint
+        - Test
+      build_script: npm run build
+    - name: Deploy
+      depends_on:
+        - Build
