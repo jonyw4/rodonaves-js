@@ -18,7 +18,7 @@ A JavaScript library to interface with Rodonaves API, it works in the browser an
 
 #### Browser using CDN (Rodonaves + Axios + QS)
 ```
-<script src="//cdn.jsdelivr.net/combine/npm/axios@0.19.2/dist/axios.js,npm/qs@6.9.3/dist/qs.js,npm/@carimflex/rodonaves-js@1.0.0-beta.2/dist/rodonaves-js-browser.js"></script>
+<script src="//cdn.jsdelivr.net/combine/npm/axios@0.19.2/dist/axios.js,npm/qs@6.9.3/dist/qs.js,npm/@carimflex/rodonaves-js@1.0.0/dist/rodonaves-js-browser.js"></script>
 ```
 
 #### npm
@@ -26,18 +26,6 @@ A JavaScript library to interface with Rodonaves API, it works in the browser an
 ```
 $ npm install --save @carimflex/rodonaves-js
 ```
-
-#### Bower
-
-```
-$ bower install --save @carimflex/rodonaves-js
-```
-#### yarn
-
-```
-$ yarn add @carimflex/rodonaves-js
-```
-
 
 ## Example
 
@@ -57,4 +45,4 @@ This library provides a promise based interface for all functions. Before you
 can use the library, you need to provide authentication details which will be
 used through API calls.
 
-For a detailed documentation, see our [Documentation](./DOCS).
+For a detailed documentation, see our [Documentation](./DOCS.md).
