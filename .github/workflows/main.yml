@@ -1,4 +1,4 @@
-name: Node.js CI
+name: Test, build and deploy
 on: [push]
 jobs:
   build:
@@ -8,6 +8,7 @@ jobs:
       env:
         NPM_TOKEN: ${{secrets.NPM_TOKEN}}
         CODECOV_TOKEN: ${{secrets.CODECOV_TOKEN}}
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     - name: Use Node.js
       uses: actions/setup-node@v1
       with:
