@@ -11,10 +11,6 @@ import getDeliveryTime from './getDeliveryTime';
  * @param {string} password Rodonaves password for Auth
  * @param {string} mode Mode of the request. Can be `dev` or `prod`
  * @param {number} timeout Timeout of the request in *ms*
- * @todo Create function `getCityByName(name)`
- * @todo Create function `tracking(name)`
- * @todo Create function `quote()`
- * @todo Create function `updateQuote()`
  */
 function Rodonaves(username, password, mode = 'dev', timeout = 1000) {
   this.mode = mode;

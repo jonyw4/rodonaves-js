@@ -45,3 +45,12 @@ can use the library, you need to provide authentication details which will be
 used through API calls.
 
 For a detailed documentation, see our [Documentation](./DOCS.md).
+
+## To do
+- [x] Function `getCityByZipCode(zipCode)`
+- [x] Function `getDeliveryTime(originZipCode, destinationZipCode)`  
+- [x] Function `simulateQuote(originZipCode, destinationZipCode, packs, invoiceValue, destinationTaxId)`
+- [ ] Function `getCityByName(name)`
+- [ ] Function `tracking(name)`
+- [ ] Function `quote()`
+- [ ] Function `updateQuote()`
