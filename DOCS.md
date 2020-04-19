@@ -22,9 +22,6 @@ Name | Description
 
 
 * [rodonaves-js]
-    * [new RodonavesFetchServerError(status)]
-    * [new RodonavesFetchClientError()]
-    * [new RodonavesFetchOtherError()]
     * [.Rodonaves]
         * [new Rodonaves(username, password, mode, timeout)]
         * [~auth()]
@@ -34,36 +31,9 @@ Name | Description
         * [~simulateQuote(originZipCode, destinationZipCode, packs, invoiceValue, destinationTaxId)]
 
 
-### new RodonavesFetchServerError(status)
-
-Creates an instance of RodonavesFetchServerError.
-
-
-| Param | Type | Description |
-| --- | --- | --- |
-| status | `string` | Status Code passed from the server |
-
-
-### new RodonavesFetchClientError()
-
-Creates an instance of RodonavesFetchClientError.
-
-
-### new RodonavesFetchOtherError()
-
-Creates an instance of RodonavesFetchOtherError.
-
-
 ### rodonaves-js.Rodonaves
 
 **Kind**: instance class of [`rodonaves-js`]  
-**Todo**
-
-- [ ] Create function `getCityByName(name)`
-- [ ] Create function `tracking(name)`
-- [ ] Create function `quote()`
-Create function `updateQuote()`
-
 
 * [.Rodonaves]
     * [new Rodonaves(username, password, mode, timeout)]
@@ -105,7 +75,7 @@ Create function `updateQuote()`
 | method | `string` | Method. Can be *GET*. *POST*... |
 | params | `object` | Querystring params. Its most used in *GET* requests |
 | data | `object` | Data. Use for *POST* requests |
-| contentType |  |  |
+| contentType | `string` | Type of data content. Use for *POST* requests |
 
 
 #### Rodonaves~getCityByZipCode(zipCode)
@@ -163,6 +133,7 @@ Create function `updateQuote()`
 | --- | --- | --- |
 | CityId | `number` | City Id |
 | CityDescription | `string` | City name |
+| UnitFederation | `object` | State Information |
 | UnitFederation.Description | `string` | State of the city |
 | Street | `string` | Street |
 | District | `string` | District |
@@ -213,9 +184,6 @@ Create function `updateQuote()`
 [.Rodonaves]:#rodonaves-jsrodonaves
 [`rodonaves-js`]:#rodonaves-js
 [`Rodonaves`]:#new-rodonavesusername-password-mode-timeout
-[new RodonavesFetchServerError(status)]:#new-rodonavesfetchservererrorstatus
-[new RodonavesFetchClientError()]:#new-rodonavesfetchclienterror
-[new RodonavesFetchOtherError()]:#new-rodonavesfetchothererror
 [new Rodonaves(username, password, mode, timeout)]:#new-rodonavesusername-password-mode-timeout
 [~auth()]:#rodonavesauth
 [~fetch(url, method, params, data, contentType)]:#rodonavesfetchurl-method-params-data-contenttype
