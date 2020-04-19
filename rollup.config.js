@@ -12,8 +12,6 @@ export default [
       'axios',
       'qs',
       'tls',
-      'regenerator-runtime/runtime',
-      'core-js/modules',
     ],
     plugins: [].concat(defaultPlugins, [commonjs()]),
     output: {
