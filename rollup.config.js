@@ -8,11 +8,7 @@ const defaultPlugins = [babel({ exclude: '/node_modules/' })];
 export default [
   {
     input,
-    external: [
-      'axios',
-      'qs',
-      'tls',
-    ],
+    external: ['axios', 'qs', 'tls'],
     plugins: [].concat(defaultPlugins, [commonjs()]),
     output: {
       globals: {
@@ -43,6 +39,16 @@ export default [
       },
       file: 'dist/rodonaves-js-browser.js',
       format: 'umd',
+      name: 'Rodonaves',
+    },
+  },
+  {
+    input,
+    external: ['axios', 'qs', 'tls'],
+    plugins: resolve(),
+    output: {
+      file: 'dist/rodonaves-js-esm.js',
+      format: 'es',
       name: 'Rodonaves',
     },
   },
