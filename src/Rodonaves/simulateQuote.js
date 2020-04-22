@@ -25,7 +25,7 @@
  * @param {string} destinationZipCode Destination ZipCode
  * @param {RodonavesPack[]} packs A list of boxes for shipping
  * @param {number} invoiceValue Total money value of the items in shipment
- * @param {number} destinationTaxId CPF/CNPJ of the destination
+ * @param {string} destinationTaxId CPF/CNPJ of the destination
  * @returns {Promise.<RodonavesSimulateQuoteResponse, (Error)>}  Return the simulate quote data, or an error if rejected.
  */
 export default async function (originZipCode, destinationZipCode, packs, invoiceValue, destinationTaxId) {

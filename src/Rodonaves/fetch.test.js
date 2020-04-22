@@ -8,6 +8,7 @@ import {
 } from '../errors';
 
 jest.mock('axios');
+// @ts-ignore
 axios.mockResolvedValue();
 
 describe('Rodonaves.fetch()', () => {
@@ -15,6 +16,7 @@ describe('Rodonaves.fetch()', () => {
     jest.clearAllMocks();
   });
   it('should fetch a GET request successfully from RTE API', async () => {
+    // @ts-ignore
     axios.mockImplementationOnce(() => Promise.resolve({
       data: { access_token: 'token123' },
     }));
@@ -42,6 +44,7 @@ describe('Rodonaves.fetch()', () => {
   });
 
   it('should fetch an RodonavesOtherError from RTE API', async () => {
+    // @ts-ignore
     axios.mockRejectedValue(new AxiosTestError({}));
     const rodonaves = new Rodonaves('u', 'p');
     const fetch = rodonaves.fetch('/test', 'GET');
@@ -49,6 +52,7 @@ describe('Rodonaves.fetch()', () => {
   });
 
   it('should fetch an RodonavesFetchClientError from RTE API', async () => {
+    // @ts-ignore
     axios.mockRejectedValue(new AxiosTestError({ request: {} }));
     const rodonaves = new Rodonaves('u', 'p');
     const fetch = rodonaves.fetch('/test', 'GET');
@@ -56,6 +60,7 @@ describe('Rodonaves.fetch()', () => {
   });
 
   it('should fetch an RodonavesFetchServerError from RTE API', async () => {
+    // @ts-ignore
     axios.mockRejectedValue(new AxiosTestError({ response: { status: 404 } }));
     const rodonaves = new Rodonaves('u', 'p');
     const fetch = rodonaves.fetch('/test', 'GET');

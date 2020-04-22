@@ -3,6 +3,7 @@ import qs from 'qs';
 import Rodonaves from './index';
 
 jest.mock('axios');
+// @ts-ignore
 axios.mockResolvedValue();
 
 describe('Rodonaves.auth()', () => {
@@ -10,6 +11,7 @@ describe('Rodonaves.auth()', () => {
     jest.clearAllMocks();
   });
   it('should call token API with success', async () => {
+    // @ts-ignore
     axios.mockImplementationOnce(() => Promise.resolve({
       data: { access_token: 'token123' },
     }));

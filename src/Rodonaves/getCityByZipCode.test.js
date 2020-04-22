@@ -2,6 +2,7 @@ import axios from 'axios';
 import Rodonaves from './index';
 
 jest.mock('axios');
+// @ts-ignore
 axios.mockResolvedValue();
 
 describe('Rodonaves.getCityByZipCode()', () => {
@@ -10,6 +11,7 @@ describe('Rodonaves.getCityByZipCode()', () => {
   });
   it('should call getCityByZipCode without token API with success', async () => {
     axios
+      // @ts-ignore
       .mockImplementationOnce(() => Promise.resolve({
         data: { access_token: 'token123' },
       }))
@@ -21,6 +23,7 @@ describe('Rodonaves.getCityByZipCode()', () => {
     const response = await rodonaves.getCityByZipCode('12608-160');
     expect(response).toEqual({ name: 'cityName' });
     expect(axios).toHaveBeenCalledTimes(2);
+    // @ts-ignore
     expect(axios.mock.calls[1][0]).toEqual({
       baseURL: 'https://01wapi.rte.com.br/',
       url: '/api/v1/busca-por-cep',
@@ -38,6 +41,7 @@ describe('Rodonaves.getCityByZipCode()', () => {
   });
 
   it('should call getCityByZipCode with token API with success', async () => {
+    // @ts-ignore
     axios.mockImplementationOnce(() => Promise.resolve({
       data: { name: 'cityName' },
     }));

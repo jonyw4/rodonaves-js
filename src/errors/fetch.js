@@ -30,7 +30,7 @@ class RodonavesFetchServerError extends Error {
   /**
    * Creates an instance of RodonavesFetchServerError.
    *
-   * @param {string} status Status Code passed from the server
+   * @param {number} status Status Code passed from the server
    * @memberof RodonavesFetchServerError
    */
   constructor(status) {

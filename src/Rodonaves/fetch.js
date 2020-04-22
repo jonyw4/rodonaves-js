@@ -18,7 +18,7 @@ if (tls) {
  *
  * @alias module:rodonaves-js#Rodonaves~fetch
  * @param {string} url URL. Route to the fetch. can be `/test`
- * @param {string} method Method. Can be *GET*. *POST*...
+ * @param {import('axios').Method} method Method. Can be *GET*. *POST*...
  * @param {object} params Querystring params. Its most used in *GET* requests
  * @param {object} data Data. Use for *POST* requests
  * @param {string} contentType Type of data content. Use for *POST* requests
