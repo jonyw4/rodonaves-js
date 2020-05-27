@@ -5,7 +5,7 @@
 [![codecov](https://codecov.io/gh/1carimflex/rodonaves-js/branch/master/graph/badge.svg)](https://codecov.io/gh/1carimflex/rodonaves-js)
 [![semantic-release](https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-e10079.svg)](https://github.com/semantic-release/semantic-release)
 
-A JavaScript library to interface with Rodonaves API, it works in the browser and with Node.js. The [documentation can be found here](https://1carimflex.github.io/rodonaves-js/).
+A JavaScript library to interface with Rodonaves API, it works in the browser and with Node.js. The [documentation can be found here](https://jonyw4.github.io/rodonaves-js/).
 
 ### Do you like?
 *Please, consider supporting my work as a lot of effort takes place to create this component! Thanks a lot.*
@@ -44,7 +44,7 @@ This library provides a promise based interface for all functions. Before you
 can use the library, you need to provide authentication details which will be
 used through API calls.
 
-For a detailed documentation, see our [Documentation](https://1carimflex.github.io/rodonaves-js/).
+For a detailed documentation, see our [Documentation](https://jonyw4.github.io/rodonaves-js/).
 
 ## To do
 - [x] Function `getCityByZipCode(zipCode)`
