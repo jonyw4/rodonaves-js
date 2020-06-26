@@ -67,7 +67,7 @@
     "jest": "26.1.0",
     "jsdoc-import-typedef": "4.0.0-dev",
     "jsdoc-to-markdown": "6.0.1",
-    "rollup": "2.18.0",
+    "rollup": "2.18.1",
     "rollup-plugin-babel": "4.4.0",
     "semantic-release": "17.1.1",
     "terser": "4.8.0"
