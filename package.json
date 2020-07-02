@@ -1,5 +1,5 @@
 {
-  "name": "@carimflex/rodonaves-js",
+  "name": "rodonaves-js",
   "version": "0.0.0",
   "description": "🚚 Rodonaves Javascript API",
   "main": "dist/rodonaves-js.min.js",
@@ -109,6 +109,9 @@
     "^.+\\.[t|j]sx?$": "babel-jest"
   },
   "jest": {
-    "collectCoverageFrom": ["**/src/**", "!**/node_modules/**"]
+    "collectCoverageFrom": [
+      "**/src/**",
+      "!**/node_modules/**"
+    ]
   }
 }
