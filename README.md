@@ -1,8 +1,7 @@
-# Rodonaves Client API - By CarimFlex
-
-[![npm (scoped)](https://img.shields.io/npm/v/@carimflex/rodonaves-js.svg)](https://www.npmjs.com/package/@carimflex/rodonaves-js)
-![Build Status](https://github.com/1carimflex/rodonaves-js/workflows/Test,%20build%20and%20deploy/badge.svg)
-[![codecov](https://codecov.io/gh/1carimflex/rodonaves-js/branch/master/graph/badge.svg)](https://codecov.io/gh/1carimflex/rodonaves-js)
+# Rodonaves Client API
+[![npm (scoped)](https://img.shields.io/npm/v/rodonaves-js.svg)](https://www.npmjs.com/package/rodonaves-js)
+![Build Status](https://github.com/jonyw4/rodonaves-js/workflows/Test,%20build%20and%20deploy/badge.svg)
+[![codecov](https://codecov.io/gh/jonyw4/rodonaves-js/branch/master/graph/badge.svg)](https://codecov.io/gh/jonyw4/rodonaves-js)
 [![semantic-release](https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-e10079.svg)](https://github.com/semantic-release/semantic-release)
 
 A JavaScript library to interface with Rodonaves API, it works in the browser and with Node.js. The [documentation can be found here](https://jonyw4.github.io/rodonaves-js/).
@@ -17,19 +16,19 @@ A JavaScript library to interface with Rodonaves API, it works in the browser an
 
 #### Browser using CDN (Rodonaves + Axios + QS)
 ```
-<script src="//cdn.jsdelivr.net/combine/npm/axios@0.19.2/dist/axios.js,npm/qs@6.9.3/dist/qs.js,npm/@carimflex/rodonaves-js@1.0.0/dist/rodonaves-js-browser.js"></script>
+<script src="//cdn.jsdelivr.net/combine/npm/axios@0.19.2/dist/axios.js,npm/qs@6.9.3/dist/qs.js,npm/rodonaves-js@1.0.0/dist/rodonaves-js-browser.js"></script>
 ```
 
 #### npm
 
 ```
-$ npm install --save @carimflex/rodonaves-js
+$ npm install --save rodonaves-js
 ```
 
 ## Example
 
 ```js
-import Rodonaves from '@carimflex/rodonaves-js';
+import Rodonaves from 'rodonaves-js';
 
 const rodonaves = new Rodonaves(
   'user',
@@ -50,6 +49,7 @@ For a detailed documentation, see our [Documentation](https://jonyw4.github.io/r
 - [x] Function `getCityByZipCode(zipCode)`
 - [x] Function `getDeliveryTime(originZipCode, destinationZipCode)`  
 - [x] Function `simulateQuote(originZipCode, destinationZipCode, packs, invoiceValue, destinationTaxId)`
+- [ ] Change project to Typescript
 - [ ] Function `getCityByName(name)`
 - [ ] Function `tracking(name)`
 - [ ] Function `quote()`
