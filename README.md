@@ -4,30 +4,23 @@
 [![codecov](https://codecov.io/gh/jonyw4/rodonaves-js/branch/master/graph/badge.svg)](https://codecov.io/gh/jonyw4/rodonaves-js)
 [![semantic-release](https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-e10079.svg)](https://github.com/semantic-release/semantic-release)
 
-A JavaScript library to interface with Rodonaves API, it works in the browser and with Node.js. The [documentation can be found here](https://jonyw4.github.io/rodonaves-js/).
+A JavaScript library to interface with Rodonaves API, it works with Node.js. The [documentation can be found here](https://jonyw4.github.io/rodonaves-js/).
 
-### Do you like?
-*Please, consider supporting my work as a lot of effort takes place to create this component! Thanks a lot.*
+## 🌟 Features
+This library its in **early stages**, so it doesn't have interfaces for all MelhorEnvio features (Your PR is very welcome).
 
-<a href="https://www.buymeacoffee.com/jonycelio" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/default-yellow.png" alt="Buy Me A Coffee" style="height: 51px !important;width: 217px !important;" ></a>
+With this library you can:
+- Get City By Zip Code
+- Get Delivery Time
+- Simulate Quote
 
+## 📖  How to use
 
-### How to use
-
-#### Browser using CDN (Rodonaves + Axios + QS)
-```
-<script src="//cdn.jsdelivr.net/combine/npm/axios@0.19.2/dist/axios.js,npm/qs@6.9.3/dist/qs.js,npm/rodonaves-js@1.0.0/dist/rodonaves-js-browser.js"></script>
-```
-
-#### npm
-
-```
-$ npm install --save rodonaves-js
+```bash
+npm install --save rodonaves-js
 ```
 
-## Example
-
-```js
+```typescript
 import Rodonaves from 'rodonaves-js';
 
 const rodonaves = new Rodonaves(
@@ -37,7 +30,7 @@ const rodonaves = new Rodonaves(
 const response = await rodonaves.getCityByZipCode('12608220');
 ```
 
-## API Docs
+## 📚 API Docs
 
 This library provides a promise based interface for all functions. Before you
 can use the library, you need to provide authentication details which will be
@@ -45,12 +38,7 @@ used through API calls.
 
 For a detailed documentation, see our [Documentation](https://jonyw4.github.io/rodonaves-js/).
 
-## To do
-- [x] Function `getCityByZipCode(zipCode)`
-- [x] Function `getDeliveryTime(originZipCode, destinationZipCode)`  
-- [x] Function `simulateQuote(originZipCode, destinationZipCode, packs, invoiceValue, destinationTaxId)`
-- [ ] Change project to Typescript
-- [ ] Function `getCityByName(name)`
-- [ ] Function `tracking(name)`
-- [ ] Function `quote()`
-- [ ] Function `updateQuote()`
+## 😍 Do you like?
+*Please, consider supporting my work as a lot of effort takes place to create this repo! Thanks a lot.*
+
+<a href="https://www.buymeacoffee.com/jonycelio" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/default-yellow.png" alt="Buy Me A Coffee" style="height: 51px !important;width: 217px !important;" ></a>
