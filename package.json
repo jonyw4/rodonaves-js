@@ -9,15 +9,14 @@
     "dist"
   ],
   "scripts": {
-    "build": "rollup -c && npm run build:minify && npm run docs",
-    "build:minify": "npm run build:minify-browser && npm run build:minify-node",
-    "build:minify-browser": "terser dist/rodonaves-js-browser.js -c -o dist/rodonaves-js-browser.min.js",
-    "build:minify-node": "terser dist/rodonaves-js.js -c -o dist/rodonaves-js.min.js",
-    "lint": "eslint 'src/**/*.js'",
-    "test": "npm run test:unit && codecov",
+    "build": "tsc --project tsconfig.build.json && npm run docs",
+    "lint": "eslint 'src/**/*.ts'",
+    "lint:fix": "eslint --fix 'src/**/*.ts'",
+    "test": "npm run test:unit",
+    "test:ci": "npm run test:unit && codecov",
     "test:unit": "jest --collectCoverage ./src",
     "test:integration": "jest ./tests",
-    "docs": "node_modules/.bin/jsdoc -c jsdoc.json",
+    "docs": "typedoc --out docs src",
     "semantic-release": "semantic-release"
   },
   "repository": {
@@ -29,10 +28,7 @@
     "carimflex",
     "rodonaves",
     "api",
-    "api",
-    "rte",
-    "rte",
-    "api"
+    "rte"
   ],
   "author": "Jonathan Célio",
   "license": "Apache-2.0",
