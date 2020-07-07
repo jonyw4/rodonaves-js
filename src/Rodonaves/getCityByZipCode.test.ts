@@ -10,7 +10,7 @@ describe('Rodonaves.getCityByZipCode()', () => {
     jest.clearAllMocks();
   });
   it('should call getCityByZipCode without token API with success', async () => {
-    axios
+    axios.request
       // @ts-ignore
       .mockImplementationOnce(() => Promise.resolve({
         data: { access_token: 'token123' },
@@ -42,7 +42,7 @@ describe('Rodonaves.getCityByZipCode()', () => {
 
   it('should call getCityByZipCode with token API with success', async () => {
     // @ts-ignore
-    axios.mockImplementationOnce(() => Promise.resolve({
+    axios.request.mockImplementationOnce(() => Promise.resolve({
       data: { name: 'cityName' },
     }));
 

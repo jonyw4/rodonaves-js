@@ -42,7 +42,10 @@ class Rodonaves {
     this.username = username;
     this.password = password;
     this.timeout = timeout;
-    this.token = null;
+  }
+
+  private sanitizePostalCode(postalCode: string) {
+    return postalCode.toString().replace(/\D+/g, '');
   }
 
   /**
@@ -122,7 +125,7 @@ class Rodonaves {
    * 🌆 Get City by Zip Code
    **/
   public async getCityByZipCode(zipCode: string) {
-    const filteredZipCode = zipCode.match(/\d+/g).join("");
+    const filteredZipCode = this.sanitizePostalCode(zipCode);
     if (!this.token) await this.auth();
     return this.fetch<RodonavesGetCityByZipCodeResponse>(
       "/api/v1/busca-por-cep",
@@ -140,16 +143,11 @@ class Rodonaves {
     originZipCode: string,
     destinationZipCode: string
   ) {
-    const filteredOriginZipCode = originZipCode.match(/\d+/g).join("");
-    const filteredDestinationZipCode = destinationZipCode
-      .match(/\d+/g)
-      .join("");
-
     if (!this.token) await this.auth();
 
     const [originCityData, destinationCityData] = await Promise.all([
-      this.getCityByZipCode(filteredOriginZipCode),
-      this.getCityByZipCode(filteredDestinationZipCode),
+      this.getCityByZipCode(this.sanitizePostalCode(originZipCode)),
+      this.getCityByZipCode(this.sanitizePostalCode(destinationZipCode))
     ]);
 
     const data = {
@@ -189,14 +187,9 @@ class Rodonaves {
       totalPacksWeight += pack.weight;
     });
 
-    const filteredOriginZipCode = originZipCode.match(/\d+/g).join("");
-    const filteredDestinationZipCode = destinationZipCode
-      .match(/\d+/g)
-      .join("");
-
     const [originCityData, destinationCityData] = await Promise.all([
-      this.getCityByZipCode(filteredOriginZipCode),
-      this.getCityByZipCode(filteredDestinationZipCode),
+      this.getCityByZipCode(this.sanitizePostalCode(originZipCode)),
+      this.getCityByZipCode(this.sanitizePostalCode(destinationZipCode))
     ]);
 
     const data = {

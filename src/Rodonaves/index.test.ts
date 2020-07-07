@@ -16,7 +16,6 @@ describe('Rodonaves.constructor()', () => {
     expect(rodonaves.username).toBe('user1');
     expect(rodonaves.password).toBe('pass1');
     expect(rodonaves.timeout).toBe(1000);
-    expect(rodonaves.token).toBeNull();
   });
 
   test('calls constructor with custom params and check const', async () => {
@@ -25,6 +24,5 @@ describe('Rodonaves.constructor()', () => {
     expect(rodonaves.username).toBe('user2');
     expect(rodonaves.password).toBe('pass2');
     expect(rodonaves.timeout).toBe(2000);
-    expect(rodonaves.token).toBeNull();
   });
 });
