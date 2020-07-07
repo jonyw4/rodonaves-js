@@ -1,7 +1,7 @@
 import {
   RodonavesFetchOtherError,
   RodonavesFetchClientError,
-  RodonavesFetchServerError,
+  RodonavesFetchServerError
 } from '.';
 
 describe('RodonavesFetchErrors', () => {
