@@ -43,3 +43,5 @@ typings/
 .env
 
 dist/
+lib
+docs
