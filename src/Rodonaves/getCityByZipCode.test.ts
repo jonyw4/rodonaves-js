@@ -3,7 +3,7 @@ import Rodonaves from './index';
 
 jest.mock('axios');
 // @ts-ignore
-axios.mockResolvedValue();
+axios.request.mockResolvedValue();
 
 describe('Rodonaves.getCityByZipCode()', () => {
   afterEach(() => {
@@ -22,9 +22,9 @@ describe('Rodonaves.getCityByZipCode()', () => {
     const rodonaves = new Rodonaves('u', 'p');
     const response = await rodonaves.getCityByZipCode('12608-160');
     expect(response).toEqual({ name: 'cityName' });
-    expect(axios).toHaveBeenCalledTimes(2);
+    expect(axios.request).toHaveBeenCalledTimes(2);
     // @ts-ignore
-    expect(axios.mock.calls[1][0]).toEqual({
+    expect(axios.request.mock.calls[1][0]).toEqual({
       baseURL: 'https://01wapi.rte.com.br/',
       url: '/api/v1/busca-por-cep',
       method: 'GET',
@@ -50,8 +50,8 @@ describe('Rodonaves.getCityByZipCode()', () => {
     rodonaves.token = '123';
     const response = await rodonaves.getCityByZipCode('12608-160');
     expect(response).toEqual({ name: 'cityName' });
-    expect(axios).toHaveBeenCalledTimes(1);
-    expect(axios).toHaveBeenCalledWith({
+    expect(axios.request).toHaveBeenCalledTimes(1);
+    expect(axios.request).toHaveBeenCalledWith({
       baseURL: 'https://01wapi.rte.com.br/',
       url: '/api/v1/busca-por-cep',
       method: 'GET',

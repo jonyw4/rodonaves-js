@@ -3,14 +3,14 @@ import Rodonaves from './index';
 
 jest.mock('axios');
 // @ts-ignore
-axios.mockResolvedValue();
+axios.request.mockResolvedValue();
 
 describe('Rodonaves.simulateQuote()', () => {
   afterEach(() => {
     jest.clearAllMocks();
   });
   it('should call simulateQuote without token API with success', async () => {
-    axios
+    axios.request
       // @ts-ignore
       .mockImplementationOnce(() => Promise.resolve({
         data: { access_token: 'token123' },
@@ -51,9 +51,9 @@ describe('Rodonaves.simulateQuote()', () => {
       Value: 333,
       DeliveryTime: 3,
     });
-    expect(axios).toHaveBeenCalledTimes(4);
+    expect(axios.request).toHaveBeenCalledTimes(4);
     // @ts-ignore
-    expect(axios.mock.calls[3][0]).toEqual({
+    expect(axios.request.mock.calls[3][0]).toEqual({
       baseURL: 'https://01wapi.rte.com.br/',
       url: '/api/v1/simula-cotacao',
       method: 'POST',

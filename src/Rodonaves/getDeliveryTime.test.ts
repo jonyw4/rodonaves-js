@@ -3,14 +3,14 @@ import Rodonaves from './index';
 
 jest.mock('axios');
 // @ts-ignore
-axios.mockResolvedValue();
+axios.request.mockResolvedValue();
 
 describe('Rodonaves.getDeliveryTime()', () => {
   afterEach(() => {
     jest.clearAllMocks();
   });
   it('should call getDeliveryTime without token API with success', async () => {
-    axios
+    axios.request
       // @ts-ignore
       .mockImplementationOnce(() => Promise.resolve({
         data: { access_token: 'token123' },
@@ -36,9 +36,9 @@ describe('Rodonaves.getDeliveryTime()', () => {
     const rodonaves = new Rodonaves('u', 'p');
     const response = await rodonaves.getDeliveryTime('1200000', '150000');
     expect(response).toEqual(3);
-    expect(axios).toHaveBeenCalledTimes(4);
+    expect(axios.request).toHaveBeenCalledTimes(4);
     // @ts-ignore
-    expect(axios.mock.calls[3][0]).toEqual({
+    expect(axios.request.mock.calls[3][0]).toEqual({
       baseURL: 'https://01wapi.rte.com.br/',
       url: '/api/v1/prazo-entrega',
       method: 'POST',

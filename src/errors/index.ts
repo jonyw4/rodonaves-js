@@ -2,12 +2,12 @@ import {
   AxiosTestError,
   RodonavesFetchServerError,
   RodonavesFetchClientError,
-  RodonavesFetchOtherError,
+  RodonavesFetchOtherError
 } from './fetch';
 
 export {
   AxiosTestError,
   RodonavesFetchServerError,
   RodonavesFetchClientError,
-  RodonavesFetchOtherError,
+  RodonavesFetchOtherError
 };

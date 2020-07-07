@@ -1,16 +1,22 @@
-/* eslint-disable max-classes-per-file */
-
-/**
- * @class
- * @augments {Error}
- */
 class AxiosTestError extends Error {
+  config: any;
+  code: any;
+  request: any;
+  response: any;
+  isAxiosError: boolean;
   constructor({
     message = 'Axios Test Error',
     config = '',
     code = '',
     request = '',
-    response = '',
+    response = ''
+  }: {
+    message?: any;
+    config?: any;
+    code?: any;
+    request?: any;
+    response?: any;
+    isAxiosError?: boolean;
   }) {
     super(message);
 
@@ -19,55 +25,42 @@ class AxiosTestError extends Error {
     this.request = request;
     this.response = response;
     this.isAxiosError = true;
+    Object.setPrototypeOf(this, new.target.prototype);
   }
 }
 
-/**
- * @class
- * @augments Error
- */
 class RodonavesFetchServerError extends Error {
   /**
    * Creates an instance of RodonavesFetchServerError.
    *
-   * @param {number} status Status Code passed from the server
-   * @memberof RodonavesFetchServerError
+   * @param status Status Code passed from the server
    */
-  constructor(status) {
+  constructor(status: number) {
     super(`Server error status ${status} `);
     this.name = 'RodonavesFetchServerError';
+    Object.setPrototypeOf(this, new.target.prototype);
   }
 }
 
-/**
- * @class
- * @augments Error
- */
 class RodonavesFetchClientError extends Error {
   /**
    * Creates an instance of RodonavesFetchClientError.
-   *
-   * @memberof RodonavesFetchClientError
    */
   constructor() {
     super('Client error');
     this.name = 'RodonavesFetchClientError';
+    Object.setPrototypeOf(this, new.target.prototype);
   }
 }
 
-/**
- * @class
- * @augments Error
- */
 class RodonavesFetchOtherError extends Error {
   /**
    * Creates an instance of RodonavesFetchOtherError.
-   *
-   * @memberof RodonavesFetchOtherError
    */
   constructor() {
     super('Other Error');
     this.name = 'RodonavesFetchOtherError';
+    Object.setPrototypeOf(this, new.target.prototype);
   }
 }
 
@@ -75,5 +68,5 @@ export {
   AxiosTestError,
   RodonavesFetchServerError,
   RodonavesFetchClientError,
-  RodonavesFetchOtherError,
+  RodonavesFetchOtherError
 };
