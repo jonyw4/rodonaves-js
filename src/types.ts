@@ -1,4 +1,4 @@
-export type Mode = "dev" | "prod"
+export type Mode = 'dev' | 'prod';
 
 export interface ServerResponse<T> {
   data: T;
@@ -9,7 +9,7 @@ export interface RodonavesGetCityByZipCodeResponse {
   CityDescription: string;
   UnitFederation: {
     Description: string;
-  }
+  };
   Street: string;
   District: string;
   ZipCode: number;

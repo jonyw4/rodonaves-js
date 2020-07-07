@@ -12,12 +12,16 @@ describe('Rodonaves.getCityByZipCode()', () => {
   it('should call getCityByZipCode without token API with success', async () => {
     axios.request
       // @ts-ignore
-      .mockImplementationOnce(() => Promise.resolve({
-        data: { access_token: 'token123' },
-      }))
-      .mockImplementationOnce(() => Promise.resolve({
-        data: { name: 'cityName' },
-      }));
+      .mockImplementationOnce(() =>
+        Promise.resolve({
+          data: { access_token: 'token123' }
+        })
+      )
+      .mockImplementationOnce(() =>
+        Promise.resolve({
+          data: { name: 'cityName' }
+        })
+      );
 
     const rodonaves = new Rodonaves('u', 'p');
     const response = await rodonaves.getCityByZipCode('12608-160');
@@ -29,22 +33,24 @@ describe('Rodonaves.getCityByZipCode()', () => {
       url: '/api/v1/busca-por-cep',
       method: 'GET',
       params: {
-        zipCode: '12608160',
+        zipCode: '12608160'
       },
       headers: {
         'Content-Type': 'application/json',
-        Authorization: 'Bearer token123',
+        Authorization: 'Bearer token123'
       },
       data: {},
-      timeout: 1000,
+      timeout: 1000
     });
   });
 
   it('should call getCityByZipCode with token API with success', async () => {
     // @ts-ignore
-    axios.request.mockImplementationOnce(() => Promise.resolve({
-      data: { name: 'cityName' },
-    }));
+    axios.request.mockImplementationOnce(() =>
+      Promise.resolve({
+        data: { name: 'cityName' }
+      })
+    );
 
     const rodonaves = new Rodonaves('u', 'p');
     rodonaves.token = '123';
@@ -56,14 +62,14 @@ describe('Rodonaves.getCityByZipCode()', () => {
       url: '/api/v1/busca-por-cep',
       method: 'GET',
       params: {
-        zipCode: '12608160',
+        zipCode: '12608160'
       },
       headers: {
         'Content-Type': 'application/json',
-        Authorization: 'Bearer 123',
+        Authorization: 'Bearer 123'
       },
       data: {},
-      timeout: 1000,
+      timeout: 1000
     });
   });
 });

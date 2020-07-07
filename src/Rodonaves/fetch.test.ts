@@ -4,7 +4,7 @@ import {
   AxiosTestError,
   RodonavesFetchServerError,
   RodonavesFetchClientError,
-  RodonavesFetchOtherError,
+  RodonavesFetchOtherError
 } from '../errors';
 
 jest.mock('axios');
@@ -17,9 +17,11 @@ describe('Rodonaves.fetch()', () => {
   });
   it('should fetch a GET request successfully from RTE API', async () => {
     // @ts-ignore
-    axios.request.mockImplementationOnce(() => Promise.resolve({
-      data: { access_token: 'token123' },
-    }));
+    axios.request.mockImplementationOnce(() =>
+      Promise.resolve({
+        data: { access_token: 'token123' }
+      })
+    );
 
     const rodonaves = new Rodonaves('u', 'p');
     const response = await rodonaves.fetch(
@@ -27,7 +29,7 @@ describe('Rodonaves.fetch()', () => {
       'GET',
       { user: 'u', password: 'p' },
       {},
-      'multipart/form-data',
+      'multipart/form-data'
     );
 
     expect(response).toEqual({ access_token: 'token123' });
@@ -39,7 +41,7 @@ describe('Rodonaves.fetch()', () => {
       data: '',
       headers: { 'Content-Type': 'multipart/form-data' },
       params: { password: 'p', user: 'u' },
-      timeout: 1000,
+      timeout: 1000
     });
   });
 
@@ -61,7 +63,9 @@ describe('Rodonaves.fetch()', () => {
 
   it('should fetch an RodonavesFetchServerError from RTE API', async () => {
     // @ts-ignore
-    axios.request.mockRejectedValue(new AxiosTestError({ response: { status: 404 } }));
+    axios.request.mockRejectedValue(
+      new AxiosTestError({ response: { status: 404 } })
+    );
     const rodonaves = new Rodonaves('u', 'p');
     const fetch = rodonaves.fetch('/test', 'GET');
     await expect(fetch).rejects.toThrow(RodonavesFetchServerError);

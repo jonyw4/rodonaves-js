@@ -1,22 +1,22 @@
-import axios, { Method, AxiosRequestConfig } from "axios";
-import qs from "qs";
-import tls from "tls";
+import axios, { Method, AxiosRequestConfig } from 'axios';
+import qs from 'qs';
+import tls from 'tls';
 import {
   RodonavesFetchOtherError,
   RodonavesFetchClientError,
-  RodonavesFetchServerError,
-} from "../errors";
+  RodonavesFetchServerError
+} from '../errors';
 import type {
   Mode,
   ServerResponse,
   RodonavesGetCityByZipCodeResponse,
   RodonavesSimulateQuoteResponse,
-  RodonavesPack,
-} from "../types";
+  RodonavesPack
+} from '../types';
 
 if (tls) {
   // Fix problem of TLS with new versions of node
-  tls.DEFAULT_MIN_VERSION = "TLSv1";
+  tls.DEFAULT_MIN_VERSION = 'TLSv1';
 }
 
 class Rodonaves {
@@ -35,8 +35,8 @@ class Rodonaves {
   constructor(
     username: string,
     password: string,
-    mode: Mode = "dev",
-    timeout: number = 1000
+    mode: Mode = 'dev',
+    timeout = 1000
   ) {
     this.mode = mode;
     this.username = username;
@@ -58,14 +58,14 @@ class Rodonaves {
    */
   public async fetch<T = any>(
     url: string,
-    method: Method = "GET",
-    params: AxiosRequestConfig["params"] = {},
-    data: AxiosRequestConfig["data"] = {},
-    contentType: string = "application/json"
+    method: Method = 'GET',
+    params: AxiosRequestConfig['params'] = {},
+    data: AxiosRequestConfig['data'] = {},
+    contentType = 'application/json'
   ) {
     // Insert Authorization token in request
-    const headers: AxiosRequestConfig["headers"] = {
-      "Content-Type": contentType,
+    const headers: AxiosRequestConfig['headers'] = {
+      'Content-Type': contentType
     };
     if (this.token) {
       headers.Authorization = `Bearer ${this.token}`;
@@ -73,19 +73,19 @@ class Rodonaves {
 
     // Check if is form data, and transform
     let transformedData = data;
-    if (contentType === "multipart/form-data") {
+    if (contentType === 'multipart/form-data') {
       transformedData = qs.stringify(data);
     }
 
     try {
       const response = await axios.request<any, ServerResponse<T>>({
-        baseURL: "https://01wapi.rte.com.br/",
+        baseURL: 'https://01wapi.rte.com.br/',
         method,
         url,
         timeout: this.timeout,
         headers,
         params,
-        data: transformedData,
+        data: transformedData
       });
       return response.data;
     } catch (error) {
@@ -105,16 +105,16 @@ class Rodonaves {
    */
   public async auth() {
     const data = await this.fetch<{ access_token: string }>(
-      "/token",
-      "POST",
+      '/token',
+      'POST',
       undefined,
       {
         auth_type: this.mode,
-        grant_type: "password",
+        grant_type: 'password',
         username: this.username,
-        password: this.password,
+        password: this.password
       },
-      "multipart/form-data"
+      'multipart/form-data'
     );
 
     this.token = data.access_token;
@@ -128,10 +128,10 @@ class Rodonaves {
     const filteredZipCode = this.sanitizePostalCode(zipCode);
     if (!this.token) await this.auth();
     return this.fetch<RodonavesGetCityByZipCodeResponse>(
-      "/api/v1/busca-por-cep",
-      "GET",
+      '/api/v1/busca-por-cep',
+      'GET',
       {
-        zipCode: filteredZipCode,
+        zipCode: filteredZipCode
       }
     );
   }
@@ -154,11 +154,11 @@ class Rodonaves {
       OriginCityDescription: originCityData.CityDescription,
       OriginUFDescription: originCityData.UnitFederation.Description,
       DestinationCityDescription: destinationCityData.CityDescription,
-      DestinationUFDescription: destinationCityData.UnitFederation.Description,
+      DestinationUFDescription: destinationCityData.UnitFederation.Description
     };
     const { DeliveryTime } = await this.fetch<{ DeliveryTime: number }>(
-      "/api/v1/prazo-entrega",
-      "POST",
+      '/api/v1/prazo-entrega',
+      'POST',
       {},
       data
     );
@@ -205,13 +205,13 @@ class Rodonaves {
         Weight: pack.weight,
         Length: pack.length,
         Height: pack.height,
-        Width: pack.width,
-      })),
+        Width: pack.width
+      }))
     };
 
     return this.fetch<RodonavesSimulateQuoteResponse>(
-      "/api/v1/simula-cotacao",
-      "POST",
+      '/api/v1/simula-cotacao',
+      'POST',
       {},
       data
     );

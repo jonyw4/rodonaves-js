@@ -12,9 +12,11 @@ describe('Rodonaves.auth()', () => {
   });
   it('should call token API with success', async () => {
     // @ts-ignore
-    axios.request.mockImplementationOnce(() => Promise.resolve({
-      data: { access_token: 'token123' },
-    }));
+    axios.request.mockImplementationOnce(() =>
+      Promise.resolve({
+        data: { access_token: 'token123' }
+      })
+    );
 
     const rodonaves = new Rodonaves('u', 'p');
     const response = await rodonaves.auth();
@@ -29,11 +31,11 @@ describe('Rodonaves.auth()', () => {
         auth_type: 'dev',
         grant_type: 'password',
         username: 'u',
-        password: 'p',
+        password: 'p'
       }),
       params: {},
       headers: { 'Content-Type': 'multipart/form-data' },
-      timeout: 1000,
+      timeout: 1000
     });
   });
 });

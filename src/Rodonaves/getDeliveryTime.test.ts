@@ -12,26 +12,34 @@ describe('Rodonaves.getDeliveryTime()', () => {
   it('should call getDeliveryTime without token API with success', async () => {
     axios.request
       // @ts-ignore
-      .mockImplementationOnce(() => Promise.resolve({
-        data: { access_token: 'token123' },
-      }))
-      .mockImplementationOnce(() => Promise.resolve({
-        data: {
-          CityDescription: 'Lorena',
-          UnitFederation: { Description: 'SP' },
-        },
-      }))
-      .mockImplementationOnce(() => Promise.resolve({
-        data: {
-          CityDescription: 'São Paulo',
-          UnitFederation: { Description: 'SP' },
-        },
-      }))
-      .mockImplementationOnce(() => Promise.resolve({
-        data: {
-          DeliveryTime: 3,
-        },
-      }));
+      .mockImplementationOnce(() =>
+        Promise.resolve({
+          data: { access_token: 'token123' }
+        })
+      )
+      .mockImplementationOnce(() =>
+        Promise.resolve({
+          data: {
+            CityDescription: 'Lorena',
+            UnitFederation: { Description: 'SP' }
+          }
+        })
+      )
+      .mockImplementationOnce(() =>
+        Promise.resolve({
+          data: {
+            CityDescription: 'São Paulo',
+            UnitFederation: { Description: 'SP' }
+          }
+        })
+      )
+      .mockImplementationOnce(() =>
+        Promise.resolve({
+          data: {
+            DeliveryTime: 3
+          }
+        })
+      );
 
     const rodonaves = new Rodonaves('u', 'p');
     const response = await rodonaves.getDeliveryTime('1200000', '150000');
@@ -44,16 +52,16 @@ describe('Rodonaves.getDeliveryTime()', () => {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
-        Authorization: 'Bearer token123',
+        Authorization: 'Bearer token123'
       },
       params: {},
       data: {
         OriginCityDescription: 'Lorena',
         OriginUFDescription: 'SP',
         DestinationCityDescription: 'São Paulo',
-        DestinationUFDescription: 'SP',
+        DestinationUFDescription: 'SP'
       },
-      timeout: 1000,
+      timeout: 1000
     });
   });
 });
