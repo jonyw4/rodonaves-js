@@ -63,67 +63,56 @@
 <div class="container container-main">
 	<div class="row">
 		<div class="col-8 col-content">
-			<div class="tsd-panel tsd-typography">
-				<a href="#rodonaves-client-api" id="rodonaves-client-api" style="color: inherit; text-decoration: none;">
-					<h1>Rodonaves Client API</h1>
-				</a>
-				<p><a href="https://www.npmjs.com/package/rodonaves-js"><img src="https://img.shields.io/npm/v/rodonaves-js.svg" alt="npm (scoped)"></a>
-					<img src="https://github.com/jonyw4/rodonaves-js/workflows/Test,%20build%20and%20deploy/badge.svg" alt="Build Status">
-					<a href="https://codecov.io/gh/jonyw4/rodonaves-js"><img src="https://codecov.io/gh/jonyw4/rodonaves-js/branch/master/graph/badge.svg" alt="codecov"></a>
-				<a href="https://github.com/semantic-release/semantic-release"><img src="https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-e10079.svg" alt="semantic-release"></a></p>
-				<p>A JavaScript library to interface with Rodonaves API, it works in the browser and with Node.js. The <a href="https://jonyw4.github.io/rodonaves-js/">documentation can be found here</a>.</p>
-				<a href="#do-you-like" id="do-you-like" style="color: inherit; text-decoration: none;">
-					<h3>Do you like?</h3>
-				</a>
-				<p><em>Please, consider supporting my work as a lot of effort takes place to create this component! Thanks a lot.</em></p>
-				<p><a href="https://www.buymeacoffee.com/jonycelio" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/default-yellow.png" alt="Buy Me A Coffee" style="height: 51px !important;width: 217px !important;" ></a></p>
-				<a href="#how-to-use" id="how-to-use" style="color: inherit; text-decoration: none;">
-					<h3>How to use</h3>
-				</a>
-				<a href="#browser-using-cdn-rodonaves--axios--qs" id="browser-using-cdn-rodonaves--axios--qs" style="color: inherit; text-decoration: none;">
-					<h4>Browser using CDN (Rodonaves + Axios + QS)</h4>
-				</a>
-				<pre><code><span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;//cdn.jsdelivr.net/combine/npm/axios@0.19.2/dist/axios.js,npm/qs@6.9.3/dist/qs.js,npm/rodonaves-js@1.0.0/dist/rodonaves-js-browser.js&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span></code></pre>
-				<a href="#npm" id="npm" style="color: inherit; text-decoration: none;">
-					<h4>npm</h4>
-				</a>
-				<pre><code>$ npm <span class="hljs-keyword">install</span> <span class="hljs-comment">--save rodonaves-js</span></code></pre>
-				<a href="#example" id="example" style="color: inherit; text-decoration: none;">
-					<h2>Example</h2>
-				</a>
-				<pre><code class="language-js"><span class="hljs-keyword">import</span> Rodonaves <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;rodonaves-js&#x27;</span>;
-
-<span class="hljs-keyword">const</span> rodonaves = <span class="hljs-keyword">new</span> Rodonaves(
-  <span class="hljs-string">&#x27;user&#x27;</span>,
-  <span class="hljs-string">&#x27;password&#x27;</span>,
-);
-<span class="hljs-keyword">const</span> response = <span class="hljs-keyword">await</span> rodonaves.getCityByZipCode(<span class="hljs-string">&#x27;12608220&#x27;</span>);</code></pre>
-				<a href="#api-docs" id="api-docs" style="color: inherit; text-decoration: none;">
-					<h2>API Docs</h2>
-				</a>
-				<p>This library provides a promise based interface for all functions. Before you
-					can use the library, you need to provide authentication details which will be
-				used through API calls.</p>
-				<p>For a detailed documentation, see our <a href="https://jonyw4.github.io/rodonaves-js/">Documentation</a>.</p>
-				<a href="#to-do" id="to-do" style="color: inherit; text-decoration: none;">
-					<h2>To do</h2>
-				</a>
-				<ul>
-					<li><input checked="" disabled="" type="checkbox"> Function <code>getCityByZipCode(zipCode)</code></li>
-					<li><input checked="" disabled="" type="checkbox"> Function <code>getDeliveryTime(originZipCode, destinationZipCode)</code>  </li>
-					<li><input checked="" disabled="" type="checkbox"> Function <code>simulateQuote(originZipCode, destinationZipCode, packs, invoiceValue, destinationTaxId)</code></li>
-					<li><input disabled="" type="checkbox"> Change project to Typescript</li>
-					<li><input disabled="" type="checkbox"> Function <code>getCityByName(name)</code></li>
-					<li><input disabled="" type="checkbox"> Function <code>tracking(name)</code></li>
-					<li><input disabled="" type="checkbox"> Function <code>quote()</code></li>
-					<li><input disabled="" type="checkbox"> Function <code>updateQuote()</code></li>
-				</ul>
-			</div>
+			<section class="tsd-panel-group tsd-index-group">
+				<h2>Index</h2>
+				<section class="tsd-panel tsd-index-panel">
+					<div class="tsd-index-content">
+						<section class="tsd-index-section ">
+							<h3>Classes</h3>
+							<ul class="tsd-index-list">
+								<li class="tsd-kind-class"><a href="classes/axiostesterror.html" class="tsd-kind-icon">Axios<wbr>Test<wbr>Error</a></li>
+								<li class="tsd-kind-class"><a href="classes/rodonaves.html" class="tsd-kind-icon">Rodonaves</a></li>
+								<li class="tsd-kind-class"><a href="classes/rodonavesfetchclienterror.html" class="tsd-kind-icon">Rodonaves<wbr>Fetch<wbr>Client<wbr>Error</a></li>
+								<li class="tsd-kind-class"><a href="classes/rodonavesfetchothererror.html" class="tsd-kind-icon">Rodonaves<wbr>Fetch<wbr>Other<wbr>Error</a></li>
+								<li class="tsd-kind-class"><a href="classes/rodonavesfetchservererror.html" class="tsd-kind-icon">Rodonaves<wbr>Fetch<wbr>Server<wbr>Error</a></li>
+							</ul>
+						</section>
+						<section class="tsd-index-section ">
+							<h3>Interfaces</h3>
+							<ul class="tsd-index-list">
+								<li class="tsd-kind-interface"><a href="interfaces/rodonavesgetcitybyzipcoderesponse.html" class="tsd-kind-icon">Rodonaves<wbr>Get<wbr>City<wbr>ByZip<wbr>Code<wbr>Response</a></li>
+								<li class="tsd-kind-interface"><a href="interfaces/rodonavespack.html" class="tsd-kind-icon">Rodonaves<wbr>Pack</a></li>
+								<li class="tsd-kind-interface"><a href="interfaces/rodonavessimulatequoteresponse.html" class="tsd-kind-icon">Rodonaves<wbr>Simulate<wbr>Quote<wbr>Response</a></li>
+								<li class="tsd-kind-interface tsd-has-type-parameter"><a href="interfaces/serverresponse.html" class="tsd-kind-icon">Server<wbr>Response</a></li>
+							</ul>
+						</section>
+						<section class="tsd-index-section ">
+							<h3>Type aliases</h3>
+							<ul class="tsd-index-list">
+								<li class="tsd-kind-type-alias"><a href="globals.html#mode" class="tsd-kind-icon">Mode</a></li>
+							</ul>
+						</section>
+					</div>
+				</section>
+			</section>
+			<section class="tsd-panel-group tsd-member-group ">
+				<h2>Type aliases</h2>
+				<section class="tsd-panel tsd-member tsd-kind-type-alias">
+					<a name="mode" class="tsd-anchor"></a>
+					<h3>Mode</h3>
+					<div class="tsd-signature tsd-kind-icon">Mode<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">"dev"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"prod"</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/jonyw4/rodonaves-js/blob/bb99a71/src/types.ts#L1">src/types.ts:1</a></li>
+						</ul>
+					</aside>
+				</section>
+			</section>
 		</div>
 		<div class="col-4 col-menu menu-sticky-wrap menu-highlight">
 			<nav class="tsd-navigation primary">
 				<ul>
-					<li class="globals  ">
+					<li class="globals current ">
 						<a href="globals.html"><em>Globals</em></a>
 					</li>
 				</ul>
