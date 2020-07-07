@@ -2,11 +2,9 @@
   "name": "rodonaves-js",
   "version": "0.0.0",
   "description": "🚚 Rodonaves Javascript API",
-  "main": "dist/rodonaves-js.min.js",
-  "module": "dist/rodonaves-js-esm.js",
-  "browser": "dist/rodonaves-js-browser.min.js",
+  "main": "lib/index.js",
   "files": [
-    "dist"
+    "lib"
   ],
   "scripts": {
     "build": "tsc --project tsconfig.build.json && npm run docs",
