@@ -1,3 +1,5 @@
+import { AxiosResponse, AxiosRequestConfig } from 'axios';
+
 class AxiosTestError extends Error {
   config: any;
   code: any;
@@ -29,36 +31,56 @@ class AxiosTestError extends Error {
   }
 }
 
-class RodonavesFetchServerError extends Error {
-  /**
-   * Creates an instance of RodonavesFetchServerError.
-   *
-   * @param status Status Code passed from the server
-   */
-  constructor(status: number) {
-    super(`Server error status ${status} `);
+class AxiosError<T> extends Error {
+  config: AxiosRequestConfig;
+  code?: string;
+  request?: any;
+  response?: AxiosResponse<T>;
+  constructor(
+    message: string,
+    config: AxiosRequestConfig,
+    code?: string | undefined,
+    request?: any,
+    response?: AxiosResponse<T>
+  ) {
+    super(message);
+    this.config = config;
+    this.code = code;
+    this.request = request;
+    this.response = response;
+  }
+}
+
+class RodonavesFetchServerError<T> extends AxiosError<T> {
+  constructor(
+    message: string,
+    config: AxiosRequestConfig,
+    code: string | undefined,
+    request: any,
+    response: AxiosResponse<T>
+  ) {
+    super(message, config, code, request, response);
     this.name = 'RodonavesFetchServerError';
     Object.setPrototypeOf(this, new.target.prototype);
   }
 }
 
-class RodonavesFetchClientError extends Error {
-  /**
-   * Creates an instance of RodonavesFetchClientError.
-   */
-  constructor() {
-    super('Client error');
+class RodonavesFetchClientError<T> extends AxiosError<T> {
+  constructor(
+    message: string,
+    config: AxiosRequestConfig,
+    code: string | undefined,
+    request: any
+  ) {
+    super(message, config, code, request);
     this.name = 'RodonavesFetchClientError';
     Object.setPrototypeOf(this, new.target.prototype);
   }
 }
 
-class RodonavesFetchOtherError extends Error {
-  /**
-   * Creates an instance of RodonavesFetchOtherError.
-   */
-  constructor() {
-    super('Other Error');
+class RodonavesFetchOtherError<T> extends AxiosError<T> {
+  constructor(message: string, config: AxiosRequestConfig) {
+    super(message, config);
     this.name = 'RodonavesFetchOtherError';
     Object.setPrototypeOf(this, new.target.prototype);
   }

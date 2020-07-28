@@ -1,4 +1,4 @@
-import axios, { Method, AxiosRequestConfig } from 'axios';
+import axios, { Method, AxiosRequestConfig, AxiosError } from 'axios';
 import qs from 'qs';
 import tls from 'tls';
 import {
@@ -62,7 +62,7 @@ class Rodonaves {
     params: AxiosRequestConfig['params'] = {},
     data: AxiosRequestConfig['data'] = {},
     contentType = 'application/json'
-  ) {
+  ): Promise<T> {
     // Insert Authorization token in request
     const headers: AxiosRequestConfig['headers'] = {
       'Content-Type': contentType
@@ -77,8 +77,8 @@ class Rodonaves {
       transformedData = qs.stringify(data);
     }
 
-    try {
-      const response = await axios.request<any, ServerResponse<T>>({
+    return axios
+      .request<any, ServerResponse<T>>({
         baseURL: 'https://01wapi.rte.com.br/',
         method,
         url,
@@ -86,18 +86,28 @@ class Rodonaves {
         headers,
         params,
         data: transformedData
+      })
+      .then((response) => response.data)
+      .catch((error: AxiosError<any>) => {
+        if (error.response) {
+          throw new RodonavesFetchServerError(
+            error.message,
+            error.config,
+            error.code,
+            error.request,
+            error.response
+          );
+        } else if (error.request) {
+          throw new RodonavesFetchClientError(
+            error.message,
+            error.config,
+            error.code,
+            error.request
+          );
+        } else {
+          throw new RodonavesFetchOtherError(error.message, error.config);
+        }
       });
-      return response.data;
-    } catch (error) {
-      // console.log(error);
-      if (error.response) {
-        throw new RodonavesFetchServerError(error.response.status);
-      } else if (error.request) {
-        throw new RodonavesFetchClientError();
-      } else {
-        throw new RodonavesFetchOtherError();
-      }
-    }
   }
 
   /**
