@@ -59,18 +59,26 @@
 					<a href="rodonavesfetchservererror.html">RodonavesFetchServerError</a>
 				</li>
 			</ul>
-			<h1>Class RodonavesFetchServerError</h1>
+			<h1>Class RodonavesFetchServerError&lt;T&gt;</h1>
 		</div>
 	</div>
 </header>
 <div class="container container-main">
 	<div class="row">
 		<div class="col-8 col-content">
+			<section class="tsd-panel tsd-type-parameters">
+				<h3>Type parameters</h3>
+				<ul class="tsd-type-parameters">
+					<li>
+						<h4>T</h4>
+					</li>
+				</ul>
+			</section>
 			<section class="tsd-panel tsd-hierarchy">
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
 					<li>
-						<a href="axiostesterror.html#error" class="tsd-signature-type">Error</a>
+						<a href="axioserror.html" class="tsd-signature-type">AxiosError</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span>
 						<ul class="tsd-hierarchy">
 							<li>
 								<span class="target">RodonavesFetchServerError</span>
@@ -86,16 +94,19 @@
 						<section class="tsd-index-section ">
 							<h3>Constructors</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-constructor tsd-parent-kind-class"><a href="rodonavesfetchservererror.html#constructor" class="tsd-kind-icon">constructor</a></li>
+								<li class="tsd-kind-constructor tsd-parent-kind-class tsd-is-overwrite"><a href="rodonavesfetchservererror.html#constructor" class="tsd-kind-icon">constructor</a></li>
 							</ul>
 						</section>
-						<section class="tsd-index-section ">
+						<section class="tsd-index-section tsd-is-inherited">
 							<h3>Properties</h3>
 							<ul class="tsd-index-list">
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a href="rodonavesfetchservererror.html#code" class="tsd-kind-icon">code</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a href="rodonavesfetchservererror.html#config" class="tsd-kind-icon">config</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a href="rodonavesfetchservererror.html#message" class="tsd-kind-icon">message</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a href="rodonavesfetchservererror.html#name" class="tsd-kind-icon">name</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a href="rodonavesfetchservererror.html#request" class="tsd-kind-icon">request</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a href="rodonavesfetchservererror.html#response" class="tsd-kind-icon">response</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a href="rodonavesfetchservererror.html#stack" class="tsd-kind-icon">stack</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-static"><a href="rodonavesfetchservererror.html#error" class="tsd-kind-icon">Error</a></li>
 							</ul>
 						</section>
 					</div>
@@ -103,33 +114,36 @@
 			</section>
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Constructors</h2>
-				<section class="tsd-panel tsd-member tsd-kind-constructor tsd-parent-kind-class">
+				<section class="tsd-panel tsd-member tsd-kind-constructor tsd-parent-kind-class tsd-is-overwrite">
 					<a name="constructor" class="tsd-anchor"></a>
 					<h3>constructor</h3>
-					<ul class="tsd-signatures tsd-kind-constructor tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">new <wbr>Rodonaves<wbr>Fetch<wbr>Server<wbr>Error<span class="tsd-signature-symbol">(</span>status<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="rodonavesfetchservererror.html" class="tsd-signature-type">RodonavesFetchServerError</a></li>
+					<ul class="tsd-signatures tsd-kind-constructor tsd-parent-kind-class tsd-is-overwrite">
+						<li class="tsd-signature tsd-kind-icon">new <wbr>Rodonaves<wbr>Fetch<wbr>Server<wbr>Error<span class="tsd-signature-symbol">(</span>message<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, config<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">AxiosRequestConfig</span>, code<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">undefined</span>, request<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span>, response<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">AxiosResponse</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="rodonavesfetchservererror.html" class="tsd-signature-type">RodonavesFetchServerError</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
+								<p>Overrides <a href="axioserror.html">AxiosError</a>.<a href="axioserror.html#constructor">constructor</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/jonyw4/rodonaves-js/blob/b8c6aaf/src/errors/fetch.ts#L32">src/errors/fetch.ts:32</a></li>
+									<li>Defined in <a href="https://github.com/jonyw4/rodonaves-js/blob/20e41d4/src/errors/fetch.ts#L54">src/errors/fetch.ts:54</a></li>
 								</ul>
 							</aside>
-							<div class="tsd-comment tsd-typography">
-								<div class="lead">
-									<p>Creates an instance of RodonavesFetchServerError.</p>
-								</div>
-							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>status: <span class="tsd-signature-type">number</span></h5>
-									<div class="tsd-comment tsd-typography">
-										<div class="lead">
-											<p>Status Code passed from the server</p>
-										</div>
-									</div>
+									<h5>message: <span class="tsd-signature-type">string</span></h5>
+								</li>
+								<li>
+									<h5>config: <span class="tsd-signature-type">AxiosRequestConfig</span></h5>
+								</li>
+								<li>
+									<h5>code: <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">undefined</span></h5>
+								</li>
+								<li>
+									<h5>request: <span class="tsd-signature-type">any</span></h5>
+								</li>
+								<li>
+									<h5>response: <span class="tsd-signature-type">AxiosResponse</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></h5>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <a href="rodonavesfetchservererror.html" class="tsd-signature-type">RodonavesFetchServerError</a></h4>
@@ -137,8 +151,30 @@
 					</ul>
 				</section>
 			</section>
-			<section class="tsd-panel-group tsd-member-group ">
+			<section class="tsd-panel-group tsd-member-group tsd-is-inherited">
 				<h2>Properties</h2>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
+					<a name="code" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> code</h3>
+					<div class="tsd-signature tsd-kind-icon">code<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span></div>
+					<aside class="tsd-sources">
+						<p>Inherited from <a href="axioserror.html">AxiosError</a>.<a href="axioserror.html#code">code</a></p>
+						<ul>
+							<li>Defined in <a href="https://github.com/jonyw4/rodonaves-js/blob/20e41d4/src/errors/fetch.ts#L36">src/errors/fetch.ts:36</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
+					<a name="config" class="tsd-anchor"></a>
+					<h3>config</h3>
+					<div class="tsd-signature tsd-kind-icon">config<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">AxiosRequestConfig</span></div>
+					<aside class="tsd-sources">
+						<p>Inherited from <a href="axioserror.html">AxiosError</a>.<a href="axioserror.html#config">config</a></p>
+						<ul>
+							<li>Defined in <a href="https://github.com/jonyw4/rodonaves-js/blob/20e41d4/src/errors/fetch.ts#L35">src/errors/fetch.ts:35</a></li>
+						</ul>
+					</aside>
+				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
 					<a name="message" class="tsd-anchor"></a>
 					<h3>message</h3>
@@ -162,6 +198,28 @@
 					</aside>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
+					<a name="request" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> request</h3>
+					<div class="tsd-signature tsd-kind-icon">request<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">any</span></div>
+					<aside class="tsd-sources">
+						<p>Inherited from <a href="axioserror.html">AxiosError</a>.<a href="axioserror.html#request">request</a></p>
+						<ul>
+							<li>Defined in <a href="https://github.com/jonyw4/rodonaves-js/blob/20e41d4/src/errors/fetch.ts#L37">src/errors/fetch.ts:37</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
+					<a name="response" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> response</h3>
+					<div class="tsd-signature tsd-kind-icon">response<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">AxiosResponse</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></div>
+					<aside class="tsd-sources">
+						<p>Inherited from <a href="axioserror.html">AxiosError</a>.<a href="axioserror.html#response">response</a></p>
+						<ul>
+							<li>Defined in <a href="https://github.com/jonyw4/rodonaves-js/blob/20e41d4/src/errors/fetch.ts#L38">src/errors/fetch.ts:38</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
 					<a name="stack" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagOptional">Optional</span> stack</h3>
 					<div class="tsd-signature tsd-kind-icon">stack<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span></div>
@@ -169,16 +227,6 @@
 						<p>Inherited from <a href="axiostesterror.html">AxiosTestError</a>.<a href="axiostesterror.html#stack">stack</a></p>
 						<ul>
 							<li>Defined in node_modules/typescript/lib/lib.es5.d.ts:975</li>
-						</ul>
-					</aside>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-static">
-					<a name="error" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagStatic">Static</span> Error</h3>
-					<div class="tsd-signature tsd-kind-icon">Error<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">ErrorConstructor</span></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in node_modules/typescript/lib/lib.es5.d.ts:984</li>
 						</ul>
 					</aside>
 				</section>
@@ -194,25 +242,34 @@
 			</nav>
 			<nav class="tsd-navigation secondary menu-sticky">
 				<ul class="before-current">
+					<li class=" tsd-kind-class tsd-has-type-parameter">
+						<a href="axioserror.html" class="tsd-kind-icon">Axios<wbr>Error</a>
+					</li>
 					<li class=" tsd-kind-class">
 						<a href="axiostesterror.html" class="tsd-kind-icon">Axios<wbr>Test<wbr>Error</a>
 					</li>
 					<li class=" tsd-kind-class">
 						<a href="rodonaves.html" class="tsd-kind-icon">Rodonaves</a>
 					</li>
-					<li class=" tsd-kind-class">
+					<li class=" tsd-kind-class tsd-has-type-parameter">
 						<a href="rodonavesfetchclienterror.html" class="tsd-kind-icon">Rodonaves<wbr>Fetch<wbr>Client<wbr>Error</a>
 					</li>
-					<li class=" tsd-kind-class">
+					<li class=" tsd-kind-class tsd-has-type-parameter">
 						<a href="rodonavesfetchothererror.html" class="tsd-kind-icon">Rodonaves<wbr>Fetch<wbr>Other<wbr>Error</a>
 					</li>
 				</ul>
 				<ul class="current">
-					<li class="current tsd-kind-class">
+					<li class="current tsd-kind-class tsd-has-type-parameter">
 						<a href="rodonavesfetchservererror.html" class="tsd-kind-icon">Rodonaves<wbr>Fetch<wbr>Server<wbr>Error</a>
 						<ul>
-							<li class=" tsd-kind-constructor tsd-parent-kind-class">
+							<li class=" tsd-kind-constructor tsd-parent-kind-class tsd-is-overwrite">
 								<a href="rodonavesfetchservererror.html#constructor" class="tsd-kind-icon">constructor</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
+								<a href="rodonavesfetchservererror.html#code" class="tsd-kind-icon">code</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
+								<a href="rodonavesfetchservererror.html#config" class="tsd-kind-icon">config</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
 								<a href="rodonavesfetchservererror.html#message" class="tsd-kind-icon">message</a>
@@ -221,10 +278,13 @@
 								<a href="rodonavesfetchservererror.html#name" class="tsd-kind-icon">name</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
-								<a href="rodonavesfetchservererror.html#stack" class="tsd-kind-icon">stack</a>
+								<a href="rodonavesfetchservererror.html#request" class="tsd-kind-icon">request</a>
 							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-static">
-								<a href="rodonavesfetchservererror.html#error" class="tsd-kind-icon">Error</a>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
+								<a href="rodonavesfetchservererror.html#response" class="tsd-kind-icon">response</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
+								<a href="rodonavesfetchservererror.html#stack" class="tsd-kind-icon">stack</a>
 							</li>
 						</ul>
 					</li>
