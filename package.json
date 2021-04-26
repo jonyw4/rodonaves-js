@@ -37,7 +37,7 @@
   "dependencies": {
     "@types/qs": "^6.9.3",
     "axios": "0.19.2",
-    "qs": "6.9.4"
+    "qs": "6.10.1"
   },
   "devDependencies": {
     "@commitlint/cli": "9.1.1",
